@@ -112,7 +112,7 @@ export default function CVPage() {
 
         <section className='mx-auto max-w-4xl px-4 py-10 sm:py-12'>
           <div className='grid items-start gap-6 sm:grid-cols-[auto_1fr]'>
-            <img src={`${import.meta.env.BASE_URL}portrait.jpg`} alt="Portrait of Mads Dixen" className="h-24 w-24 rounded-2xl object-cover shadow-lg" />
+            <img src="portrait.jpg" alt="Portrait of Mads Dixen" className="h-24 w-24 rounded-2xl object-cover shadow-lg" />
             <div>
               <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>{profile.title}</h2>
               <p className='mt-3 max-w-3xl leading-relaxed text-slate-600'>
