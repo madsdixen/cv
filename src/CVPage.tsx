@@ -184,21 +184,19 @@ export default function CVPage() {
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center gap-3">
-                    {item.logo && (
-                      <img
-                        src={item.logo}
-                        alt={`${item.org} logo`}
-                        className="h-24 w-24 rounded object-contain"
-                      />
-                    )}
-                    <h4 className="text-base font-semibold">
-                      {item.role} <span className="text-slate-500">· {item.org}</span>
-                    </h4>
-                  </div>
-                  <span className="text-sm text-slate-500">{item.period}</span>
+                <div className="flex items-center justify-between w-full">
+                  <h4 className="text-base font-semibold">
+                    {item.role} <span className="text-slate-500">· {item.org}</span>
+                  </h4>
+                  {item.logo && (
+                    <img
+                      src={item.logo}
+                      alt={`${item.org} logo`}
+                      className="h-24 w-24 object-contain"
+                    />
+                  )}
                 </div>
+                <span className="text-sm text-slate-500">{item.period}</span>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
                   {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
@@ -222,19 +220,17 @@ export default function CVPage() {
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    {e.logo && (
-                      <img
-                        src={e.logo}
-                        alt={`${e.school} logo`}
-                        className="h-24 w-24 rounded object-contain"
-                      />
-                    )}
-                    <p className="font-medium">{e.degree}</p>
-                  </div>
-                  <span className="text-sm text-slate-500">{e.period}</span>
+                <div className="flex items-center justify-between w-full">
+                  <p className="font-medium">{e.degree}</p>
+                  {e.logo && (
+                    <img
+                      src={e.logo}
+                      alt={`${e.school} logo`}
+                      className="h-24 w-24 object-contain"
+                    />
+                  )}
                 </div>
+                <span className="text-sm text-slate-500">{e.period}</span>
                 <p className="mt-1 text-sm text-slate-600">{e.school}</p>
               </div>
             </div>
