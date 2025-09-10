@@ -72,6 +72,7 @@ export default function CVPage() {
       role: 'Teaching Assistant (Software Development)',
       org: 'MSc ITKO',
       period: '2022 – 2023',
+      logo: 'logos/bss.png',
       bullets: [
         'Assisted course delivery and practical exercises in software development.',
       ],
@@ -80,6 +81,7 @@ export default function CVPage() {
       role: 'ISO27001 Consultant',
       org: 'ApplicateIT',
       period: '2021',
+      logo: 'logos/applicate.png',
       bullets: [
         'Studying the ISO27001 standard while creating and managing an information security management system.',
       ],
