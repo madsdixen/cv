@@ -196,10 +196,12 @@ export default function CVPage() {
                     />
                   )}
                 </div>
-                <span className="text-sm text-slate-500">{item.period}</span>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
                   {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
+                <div className="mt-2 flex justify-end">
+                  <span className="text-sm text-slate-500">{item.period}</span>
+                </div>
               </div>
             </article>
           ))}
@@ -230,8 +232,10 @@ export default function CVPage() {
                     />
                   )}
                 </div>
-                <span className="text-sm text-slate-500">{e.period}</span>
                 <p className="mt-1 text-sm text-slate-600">{e.school}</p>
+                <div className="mt-2 flex justify-end">
+                  <span className="text-sm text-slate-500">{e.period}</span>
+                </div>
               </div>
             </div>
           ))}
