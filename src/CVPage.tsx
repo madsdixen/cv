@@ -236,7 +236,7 @@ export default function CVPage() {
             <img
               src={e.logo}
               alt={`${e.school} logo`}
-              className="h-5 w-5 object-contain rounded"
+              className="h-15 w-15 object-contain rounded"
             />
           ) : (
             <span className="block h-2 w-2 rounded-full bg-white" />
