@@ -190,7 +190,7 @@ export default function CVPage() {
                       <img
                         src={item.logo}
                         alt={`${item.org} logo`}
-                        className="h-6 w-6 rounded object-contain"
+                        className="h-24 w-24 rounded object-contain"
                       />
                     )}
                     <h4 className="text-base font-semibold">
@@ -228,7 +228,7 @@ export default function CVPage() {
                       <img
                         src={e.logo}
                         alt={`${e.school} logo`}
-                        className="h-6 w-6 rounded object-contain"
+                        className="h-24 w-24 rounded object-contain"
                       />
                     )}
                     <p className="font-medium">{e.degree}</p>
