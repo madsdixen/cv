@@ -31,6 +31,7 @@ export default function CVPage() {
       role: 'Product Manager',
       org: 'Studiesystemer (AU)',
       period: '2024 – Present',
+      logo: 'logos/au.png',
       bullets: [
         'Product ownership for digital exam & evaluation systems (WISEflow, Explorance Blue).',
         'Own roadmaps & backlogs; drive upgrades, testing, data tasks, and quality gates.',
@@ -42,6 +43,7 @@ export default function CVPage() {
       role: 'Local Information Security Coordinator (LISK)',
       org: 'AU Uddannelse',
       period: '2024 – Present',
+      logo: 'logos/au.png',
       bullets: [
         'Coordinate local ISMS activities and awareness initiatives.',
         'Support risk assessments, asset documentation, and management reporting.',
@@ -79,16 +81,19 @@ export default function CVPage() {
       degree: 'MSc – IT, Communication & Organization (ITKO)',
       school: 'Aarhus University',
       period: '2021 – 2023',
+      logo: 'logos/bss.png',
     },
     {
       degree: 'BA – Digital Design, IT, Aesthetics & Interaction & Information Studies',
       school: 'Aarhus University',
       period: '2017 – 2020',
+      logo: 'logos/au.png',
     },
     {
       degree: 'AP – Service, Hospitality & Tourism Management (Sport & Event)',
       school: 'Business Academy',
       period: '2015 – 2017',
+      logo: 'logos/dania.png',
     },
   ]
 
@@ -179,10 +184,19 @@ export default function CVPage() {
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h4 className="text-base font-semibold">
-                    {item.role} <span className="text-slate-500">· {item.org}</span>
-                  </h4>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-3">
+                    {item.logo && (
+                      <img
+                        src={item.logo}
+                        alt={`${item.org} logo`}
+                        className="h-6 w-6 rounded object-contain"
+                      />
+                    )}
+                    <h4 className="text-base font-semibold">
+                      {item.role} <span className="text-slate-500">· {item.org}</span>
+                    </h4>
+                  </div>
                   <span className="text-sm text-slate-500">{item.period}</span>
                 </div>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
@@ -200,7 +214,7 @@ export default function CVPage() {
           <h3 className="text-xl font-semibold tracking-tight">Education</h3>
           <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
         </div>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        <div className="mt-5 space-y-6">
           {education.map((e, i) => (
             <div
               key={i}
@@ -209,7 +223,16 @@ export default function CVPage() {
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
                 <div className="flex items-center justify-between">
-                  <p className="font-medium">{e.degree}</p>
+                  <div className="flex items-center gap-3">
+                    {e.logo && (
+                      <img
+                        src={e.logo}
+                        alt={`${e.school} logo`}
+                        className="h-6 w-6 rounded object-contain"
+                      />
+                    )}
+                    <p className="font-medium">{e.degree}</p>
+                  </div>
                   <span className="text-sm text-slate-500">{e.period}</span>
                 </div>
                 <p className="mt-1 text-sm text-slate-600">{e.school}</p>
