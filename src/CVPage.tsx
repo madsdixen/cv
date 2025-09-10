@@ -10,7 +10,6 @@ export default function CVPage() {
     email: 'mads.dixen@gmail.com',
     phone: '+45 31 31 38 68',
     linkedin: 'https://www.linkedin.com/in/madsdixen/',
-    github: 'https://github.com/',
     pdf: '/MadsDixen_CV.pdf'
   }), [])
 
@@ -141,8 +140,8 @@ export default function CVPage() {
             <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-slate-700">
               <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm">{profile.location}</span>
               <a href={`mailto:${profile.email}`} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">{profile.email}</a>
+              <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">{profile.phone}</a>
               <a href={profile.linkedin} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">LinkedIn</a>
-              <a href={profile.github} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">GitHub</a>
             </div>
           </div>
         </div>
@@ -226,8 +225,8 @@ export default function CVPage() {
           <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <a href={profile.linkedin} className="underline underline-offset-4">LinkedIn</a>
-            <a href={profile.github} className="underline underline-offset-4">GitHub</a>
             <a href={`mailto:${profile.email}`} className="underline underline-offset-4">Email</a>
+            <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="underline underline-offset-4">Phone</a>
           </div>
         </div>
       </footer>
