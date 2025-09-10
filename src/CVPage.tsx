@@ -185,15 +185,17 @@ export default function CVPage() {
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
                 <div className="flex items-center justify-between w-full">
-                  <h4 className="text-base font-semibold">
+                  <h4 className="text-base font-semibold flex-1">
                     {item.role} <span className="text-slate-500">· {item.org}</span>
                   </h4>
                   {item.logo && (
-                    <img
-                      src={item.logo}
-                      alt={`${item.org} logo`}
-                      className="h-24 w-24 object-contain"
-                    />
+                    <div className="flex-shrink-0 ml-4 w-24 h-24 flex items-center justify-center">
+                      <img
+                        src={item.logo}
+                        alt={`${item.org} logo`}
+                        className="max-h-24 max-w-24 object-contain"
+                      />
+                    </div>
                   )}
                 </div>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
@@ -223,13 +225,15 @@ export default function CVPage() {
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
                 <div className="flex items-center justify-between w-full">
-                  <p className="font-medium">{e.degree}</p>
+                  <p className="font-medium flex-1">{e.degree}</p>
                   {e.logo && (
-                    <img
-                      src={e.logo}
-                      alt={`${e.school} logo`}
-                      className="h-24 w-24 object-contain"
-                    />
+                    <div className="flex-shrink-0 ml-4 w-24 h-24 flex items-center justify-center">
+                      <img
+                        src={e.logo}
+                        alt={`${e.school} logo`}
+                        className="max-h-24 max-w-24 object-contain"
+                      />
+                    </div>
                   )}
                 </div>
                 <p className="mt-1 text-sm text-slate-600">{e.school}</p>
