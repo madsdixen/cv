@@ -183,25 +183,23 @@ export default function CVPage() {
               className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200/70 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
-              <div className="p-4">
-                <div className="grid grid-cols-[1fr_auto] items-center gap-3 w-full">
+              <div className="p-4 grid grid-cols-4 gap-4">
+                <div className="col-span-3">
                   <h4 className="text-base font-semibold">
                     {item.role} <span className="text-slate-500">· {item.org}</span>
                   </h4>
-                  {item.logo && (
-                    <div className="flex-shrink-0">
-                      <img
-                        src={item.logo}
-                        alt={`${item.org} logo`}
-                        className="h-24 w-24 object-contain"
-                      />
-                    </div>
-                  )}
+                  <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
+                    {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                  </ul>
                 </div>
-                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
-                  {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
-                </ul>
-                <div className="mt-2 flex justify-end">
+                <div className="col-span-1 flex flex-col items-end justify-between">
+                  {item.logo && (
+                    <img
+                      src={item.logo}
+                      alt={`${item.org} logo`}
+                      className="h-24 w-24 object-contain mb-2"
+                    />
+                  )}
                   <span className="text-sm text-slate-500">{item.period}</span>
                 </div>
               </div>
@@ -223,21 +221,19 @@ export default function CVPage() {
               className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
-              <div className="p-4">
-                <div className="grid grid-cols-[1fr_auto] items-center gap-3 w-full">
+              <div className="p-4 grid grid-cols-4 gap-4">
+                <div className="col-span-3">
                   <p className="font-medium">{e.degree}</p>
-                  {e.logo && (
-                    <div className="flex-shrink-0">
-                      <img
-                        src={e.logo}
-                        alt={`${e.school} logo`}
-                        className="h-24 w-24 object-contain"
-                      />
-                    </div>
-                  )}
+                  <p className="mt-1 text-sm text-slate-600">{e.school}</p>
                 </div>
-                <p className="mt-1 text-sm text-slate-600">{e.school}</p>
-                <div className="mt-2 flex justify-end">
+                <div className="col-span-1 flex flex-col items-end justify-between">
+                  {e.logo && (
+                    <img
+                      src={e.logo}
+                      alt={`${e.school} logo`}
+                      className="h-24 w-24 object-contain mb-2"
+                    />
+                  )}
                   <span className="text-sm text-slate-500">{e.period}</span>
                 </div>
               </div>
