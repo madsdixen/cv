@@ -184,26 +184,24 @@ export default function CVPage() {
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
-                <div className="flex items-center justify-between w-full">
-                  <h4 className="text-base font-semibold flex-1">
+                <div className="grid grid-cols-[1fr_auto] items-center gap-3 w-full">
+                  <h4 className="text-base font-semibold">
                     {item.role} <span className="text-slate-500">· {item.org}</span>
                   </h4>
                   {item.logo && (
-                    <div className="flex-shrink-0 ml-4 w-24 h-24 flex items-center justify-center">
+                    <div className="flex-shrink-0">
                       <img
                         src={item.logo}
                         alt={`${item.org} logo`}
-                        className="max-h-24 max-w-24 object-contain"
+                        className="h-24 w-24 object-contain"
                       />
                     </div>
                   )}
                 </div>
+                <span className="text-sm text-slate-500">{item.period}</span>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
                   {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
-                <div className="mt-2 flex justify-end">
-                  <span className="text-sm text-slate-500">{item.period}</span>
-                </div>
               </div>
             </article>
           ))}
@@ -224,22 +222,20 @@ export default function CVPage() {
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
               <div className="p-4">
-                <div className="flex items-center justify-between w-full">
-                  <p className="font-medium flex-1">{e.degree}</p>
+                <div className="grid grid-cols-[1fr_auto] items-center gap-3 w-full">
+                  <p className="font-medium">{e.degree}</p>
                   {e.logo && (
-                    <div className="flex-shrink-0 ml-4 w-24 h-24 flex items-center justify-center">
+                    <div className="flex-shrink-0">
                       <img
                         src={e.logo}
                         alt={`${e.school} logo`}
-                        className="max-h-24 max-w-24 object-contain"
+                        className="h-24 w-24 object-contain"
                       />
                     </div>
                   )}
                 </div>
+                <span className="text-sm text-slate-500">{e.period}</span>
                 <p className="mt-1 text-sm text-slate-600">{e.school}</p>
-                <div className="mt-2 flex justify-end">
-                  <span className="text-sm text-slate-500">{e.period}</span>
-                </div>
               </div>
             </div>
           ))}
