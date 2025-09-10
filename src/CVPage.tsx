@@ -197,7 +197,7 @@ export default function CVPage() {
                     <img
                       src={item.logo}
                       alt={`${item.org} logo`}
-                      className="h-24 w-24 object-cover mb-2"
+                      className="max-h-24 max-w-24 object-contain mb-2"
                     />
                   )}
                   <span className="text-sm text-slate-500">{item.period}</span>
@@ -231,7 +231,7 @@ export default function CVPage() {
                     <img
                       src={e.logo}
                       alt={`${e.school} logo`}
-                      className="h-24 w-24 object-cover mb-2"
+                      className="max-h-24 max-w-24 object-contain mb-2"
                     />
                   )}
                   <span className="text-sm text-slate-500">{e.period}</span>
