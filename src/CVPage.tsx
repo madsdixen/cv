@@ -222,35 +222,32 @@ export default function CVPage() {
 
       {/* Education */}
 <section className="mx-auto max-w-5xl px-4 pb-16">
-  <div className="flex items-center gap-3">
+  <div className="flex items-center gap-3 bg-slate-50 dark:bg-slate-900 p-2 rounded-lg">
     <h3 className="text-xl font-semibold tracking-tight">Education</h3>
     <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
   </div>
 
-  <div className="mt-8 relative border-l-2 border-slate-200 dark:border-slate-700">
+  <div className="mt-8 space-y-8">
     {education.map((e, i) => (
-      <div key={i} className="mb-10 ml-6 relative">
-        {/* Timeline marker with optional logo */}
-        <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500 ring-4 ring-white dark:ring-slate-900">
-          {e.logo ? (
-            <img
-              src={e.logo}
-              alt={`${e.school} logo`}
-              className="h-5 w-5 object-contain rounded"
-            />
-          ) : (
-            <span className="block h-2 w-2 rounded-full bg-white" />
-          )}
-        </span>
-
+      <div key={i} className="relative">
         {/* Content card */}
-        <div className="p-4 rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <div className="p-6 rounded-xl border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-700 dark:bg-slate-800">
           <div className="flex items-center justify-between mb-1">
             <p className="font-medium">{e.degree}</p>
             <span className="text-sm text-slate-500">{e.period}</span>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-300">{e.school}</p>
+          <div className="flex items-center gap-3">
+            {e.logo && (
+              <img
+                src={e.logo}
+                alt={`${e.school} logo`}
+                className="h-12 w-12 object-contain"
+              />
+            )}
+            <p className="text-sm text-slate-600 dark:text-slate-300">{e.school}</p>
+          </div>
         </div>
+        {i < education.length - 1 && (<div className="my-6 border-t border-dashed border-slate-300 dark:border-slate-600" />)}
       </div>
     ))}
   </div>
