@@ -54,6 +54,7 @@ export default function CVPage() {
       role: 'UX Designer',
       org: 'SaaS (Water Sports Platform)',
       period: '2024',
+      logo: 'logos/wakeque.png',
       bullets: [
         'Optimized onboarding and customer journey for a vertical SaaS product.',
       ],
@@ -62,6 +63,7 @@ export default function CVPage() {
       role: 'Cybersecurity Consultant',
       org: 'Integrated Metal Solutions',
       period: '2024',
+      logo: 'logos/iqmetal.png',
       bullets: [
         'Developed security policies, conducted risk assessments, ensured compliance.',
       ],
@@ -72,6 +74,14 @@ export default function CVPage() {
       period: '2022 – 2023',
       bullets: [
         'Assisted course delivery and practical exercises in software development.',
+      ],
+    },
+    {
+      role: 'ISO27001 Consultant',
+      org: 'ApplicateIT',
+      period: '2021',
+      bullets: [
+        'Studying the ISO27001 standard while creating and managing an information security management system.',
       ],
     },
   ]
