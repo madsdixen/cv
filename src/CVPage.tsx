@@ -220,36 +220,40 @@ export default function CVPage() {
         </div>
       </section>
 
-      {/* Education */}
+{/* Education */}
 <section className="mx-auto max-w-5xl px-4 pb-16">
   <div className="flex items-center gap-3">
     <h3 className="text-xl font-semibold tracking-tight">Education</h3>
     <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
   </div>
 
-  <div className="mt-8 relative border-l-2 border-slate-200 dark:border-slate-700">
+  <div className="mt-5 space-y-6">
     {education.map((e, i) => (
-      <div key={i} className="mb-10 ml-6 relative">
-        {/* Timeline marker with optional logo */}
-        <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500 ring-4 ring-white dark:ring-slate-900">
-          {e.logo ? (
-            <img
-              src={e.logo}
-              alt={`${e.school} logo`}
-              className="h-15 w-15 object-contain rounded"
-            />
-          ) : (
-            <span className="block h-2 w-2 rounded-full bg-white" />
-          )}
-        </span>
-
-        {/* Content card */}
-        <div className="p-4 rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
-          <div className="flex items-center justify-between mb-1">
+      <div
+        key={i}
+        className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-slate-900 dark:border-slate-800"
+      >
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
+        <div className="p-4 grid grid-cols-4 gap-4">
+          {/* Left column: degree + school */}
+          <div className="col-span-3">
             <p className="font-medium">{e.degree}</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{e.school}</p>
+          </div>
+
+          {/* Right column: logo + year */}
+          <div className="col-span-1 flex flex-col items-end justify-between">
+            {e.logo && (
+              <div className="flex-shrink-0">
+                <img
+                  src={e.logo}
+                  alt={`${e.school} logo`}
+                  className="max-h-24 max-w-24 object-contain mb-2"
+                />
+              </div>
+            )}
             <span className="text-sm text-slate-500">{e.period}</span>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-300">{e.school}</p>
         </div>
       </div>
     ))}
