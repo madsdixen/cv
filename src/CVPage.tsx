@@ -231,14 +231,14 @@ export default function CVPage() {
     {education.map((e, i) => (
       <div
         key={i}
-        className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-50 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-slate-800 dark:border-slate-700"
+        className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-50 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
       >
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
         <div className="p-4 grid grid-cols-4 gap-4">
           {/* Left column: degree + school */}
           <div className="col-span-3">
             <p className="font-medium">{e.degree}</p>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{e.school}</p>
+            <p className="mt-1 text-sm text-slate-600">{e.school}</p>
           </div>
 
           {/* Right column: logo + year */}
