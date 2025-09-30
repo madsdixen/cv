@@ -71,7 +71,7 @@ export default function CVPage() {
     },
     {
       role: 'Teaching Assistant (Software Development)',
-      org: 'MSc ITKO',
+      org: 'MSc ITKO – BSS Aarhus University',
       period: '2022 – 2023',
       logo: 'logos/bss.png',
       bullets: [
@@ -92,7 +92,7 @@ export default function CVPage() {
   const education = [
     {
       degree: 'MSc – IT, Communication & Organization (ITKO)',
-      school: 'Aarhus University',
+      school: 'BSS – Aarhus University',
       period: '2021 – 2023',
       logo: 'logos/bss.png',
     },
@@ -104,7 +104,7 @@ export default function CVPage() {
     },
     {
       degree: 'AP – Service, Hospitality & Tourism Management (Sport & Event)',
-      school: 'Business Academy',
+      school: 'Dania – Business Academy',
       period: '2015 – 2017',
       logo: 'logos/dania.png',
     },
