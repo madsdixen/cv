@@ -269,13 +269,13 @@ export default function CVPage() {
         </div>
 
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {['ppf.png', 'gcc.png', 'bea.png'].map((logo, i) => (
+          {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
             <div
               key={i}
               className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
             >
               <img
-                src={`logos/${logo}`}
+                src={`${cert}`}
                 alt={`Certification ${i + 1}`}
                 className="max-h-24 object-contain"
               />
