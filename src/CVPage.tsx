@@ -10,7 +10,6 @@ export default function CVPage() {
     email: 'mads.dixen@gmail.com',
     phone: '+45 31 31 38 68',
     linkedin: 'https://www.linkedin.com/in/madsdixen/',
-    pdf: '/MadsDixen_CV.pdf'
   }), [])
 
   const skills = [
@@ -20,10 +19,12 @@ export default function CVPage() {
     'Process Optimization',
     'Information Security (ISO27001, NIS2, GDPR)',
     'Azure · Power Platform',
-    'APIs · Integrations',
-    'SQL · JavaScript · Python',
+    'API Management · Integrations',
+    'SQL · JavaScript · Python · C#',
     'UX/UI',
     'Testing · QA',
+    'Agile · Scrum',
+    'Automation Solutions',
   ]
 
   const experience = [
@@ -40,7 +41,7 @@ export default function CVPage() {
       ],
     },
     {
-      role: 'Local Information Security Coordinator (LISK)',
+      role: 'Local Information Security Coordinator',
       org: 'AU Uddannelse',
       period: '2024 – Present',
       logo: 'logos/au.png',
@@ -259,6 +260,29 @@ export default function CVPage() {
     ))}
   </div>
 </section>
+
+      {/* Certifications */}
+      <section className="mx-auto max-w-5xl px-4 pb-16">
+        <div className="flex items-center gap-3">
+          <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
+          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {['ppf.png', 'gcc.png', 'bea.png'].map((logo, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <img
+                src={`logos/${logo}`}
+                alt={`Certification ${i + 1}`}
+                className="max-h-24 object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="border-t border-slate-200/70 bg-gradient-to-b from-white to-slate-100 py-6 text-sm text-slate-500">
