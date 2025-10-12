@@ -5,7 +5,7 @@ export default function CVPage() {
     name: 'Mads Dixen',
     title: 'IT & Product Management | InfoSec Coordination',
     summary:
-      "Strategic and forward-thinking IT & Product Management professional with a master's degree in IT, Communication & Organization. Experienced in leading digital transformation, managing complex system landscapes, and coordinating information security. Strong blend of product management, cybersecurity, and stakeholder engagement to streamline processes, enhance user experiences, and ensure compliance (ISO27001, NIS2, GDPR).",
+      "Strategic and forward-thinking IT & Product Management professional with a master's degree in IT, Communication & Organization. Experienced in leading digital transformation, managing complex system landscapes, and coordinating information security. Strong blend of product management, cybersecurity, and stakeholder engagement to streamline processes, enhance user experiences, and ensure compliance.",
     location: 'Aarhus, Denmark',
     email: 'mads.dixen@gmail.com',
     phone: '+45 31 31 38 68',
@@ -33,6 +33,7 @@ export default function CVPage() {
       org: 'Studiesystemer (AU)',
       period: '2024 – Present',
       logo: 'logos/au.png',
+      type: 'Full-time',
       bullets: [
         'Product ownership for digital exam & evaluation systems (WISEflow, Explorance Blue).',
         'Own roadmaps & backlogs; drive upgrades, testing, data tasks, and quality gates.',
@@ -45,6 +46,7 @@ export default function CVPage() {
       org: 'AU Uddannelse',
       period: '2024 – Present',
       logo: 'logos/au.png',
+      type: 'Part-time',
       bullets: [
         'Coordinate local ISMS activities and awareness initiatives.',
         'Support risk assessments, asset documentation, and management reporting.',
@@ -52,21 +54,26 @@ export default function CVPage() {
       ],
     },
     {
-      role: 'UX Designer',
-      org: 'SaaS (Water Sports Platform)',
-      period: '2024',
-      logo: 'logos/wakeque.png',
-      bullets: [
-        'Optimized onboarding and customer journey for a vertical SaaS product.',
-      ],
-    },
-    {
       role: 'Cybersecurity Consultant',
       org: 'Integrated Metal Solutions',
       period: '2024',
       logo: 'logos/iqmetal.png',
+      type: 'Internship',
       bullets: [
-        'Developed security policies, conducted risk assessments, ensured compliance.',
+        'Developing and implementing security policies and procedures.',
+        'Conducting risk assessments and vulnerability analyses.',
+        'Providing training and awareness programs for employees.',
+        'Ensuring compliance with industry standards and regulations.',        
+      ],
+    },
+        {
+      role: 'UX Designer',
+      org: 'SaaS (Water Sports Platform)',
+      period: '2024',
+      logo: 'logos/wakeque.png',
+      type: 'Internship',
+      bullets: [
+        'Optimized onboarding and customer journey for a vertical SaaS product.',
       ],
     },
     {
@@ -74,6 +81,7 @@ export default function CVPage() {
       org: 'MSc ITKO – BSS Aarhus University',
       period: '2022 – 2023',
       logo: 'logos/bss.png',
+      type: 'Part-time',
       bullets: [
         'Assisted course delivery and practical exercises in software development.',
       ],
@@ -83,6 +91,7 @@ export default function CVPage() {
       org: 'ApplicateIT',
       period: '2021',
       logo: 'logos/applicate.png',
+      type: 'Internship',
       bullets: [
         'Studying the ISO27001 standard while creating and managing an information security management system.',
       ],
@@ -200,6 +209,11 @@ export default function CVPage() {
                 <div className="col-span-3">
                   <h4 className="text-base font-semibold">
                     {item.role} <span className="text-slate-500">· {item.org}</span>
+                    {item.type && (
+                      <span className="ml-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-600">
+                        {item.type}
+                      </span>
+                    )}
                   </h4>
                   <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
                     {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
