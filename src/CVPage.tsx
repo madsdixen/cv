@@ -35,7 +35,7 @@ export default function CVPage() {
       logo: 'logos/au.png',
       type: 'Full-time',
       bullets: [
-        'Product ownership for digital exam & evaluation systems (WISEflow, Explorance Blue).',
+        'Product management for digital exam & evaluation systems (WISEflow, Explorance Blue).',
         'Own roadmaps & backlogs; drive upgrades, testing, data tasks, and quality gates.',
         'Cross-functional coordination with operations, IT, faculties, and vendors.',
         'Bridge business & IT with focus on efficiency and user experience.',
@@ -46,7 +46,7 @@ export default function CVPage() {
       org: 'AU Uddannelse',
       period: '2024 – Present',
       logo: 'logos/au.png',
-      type: 'Part-time',
+      type: 'Full-time',
       bullets: [
         'Coordinate local ISMS activities and awareness initiatives.',
         'Support risk assessments, asset documentation, and management reporting.',
@@ -74,6 +74,8 @@ export default function CVPage() {
       type: 'Internship',
       bullets: [
         'Optimized onboarding and customer journey for a vertical SaaS product.',
+        'Conducted user research, created wireframes, and developed prototypes.',
+        'Collaborated with developers to implement user-centric designs.',
       ],
     },
     {
@@ -84,6 +86,7 @@ export default function CVPage() {
       type: 'Part-time',
       bullets: [
         'Assisted course delivery and practical exercises in software development.',
+        'Provided student support and feedback on assignments and projects.',
       ],
     },
     {
@@ -301,7 +304,7 @@ export default function CVPage() {
       {/* Footer */}
       <footer className="border-t border-slate-200/70 bg-gradient-to-b from-white to-slate-100 py-6 text-sm text-slate-500">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4">
-          <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
+          {/*<p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>*/}
           <div className="flex items-center gap-3">
             <a href={profile.linkedin} className="underline underline-offset-4">LinkedIn</a>
             <a href={`mailto:${profile.email}`} className="underline underline-offset-4">Email</a>
