@@ -123,19 +123,19 @@ export default function CVPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-800 print:bg-white print:text-slate-900 print:p-10 print:max-w-4xl print:mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-800">
       {/* Header */}
-      <header className="sticky top-0 z-20 border-b border-slate-200/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 print:static print:bg-transparent print:border-none print:px-0 print:py-0">
-        <div className="relative mx-auto max-w-5xl px-4 print:max-w-none print:px-0">
-          <div className="flex items-center justify-between py-3 print:py-0">
+      <header className="sticky top-0 z-20 border-b border-slate-200/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div className="relative mx-auto max-w-5xl px-4">
+          <div className="flex items-center justify-between py-3">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 shadow-sm print:hidden" />
+              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 shadow-sm" />
               <div>
-                <h1 className="text-lg font-semibold leading-tight tracking-tight print:text-2xl">{profile.name}</h1>
-                <p className="text-xs text-slate-500 print:text-base">{profile.title}</p>
+                <h1 className="text-lg font-semibold leading-tight tracking-tight">{profile.name}</h1>
+                <p className="text-xs text-slate-500">{profile.title}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-sm print:hidden">
+            <div className="flex items-center gap-2 text-sm">
               <button
                 onClick={() => window.print()}
                 className="rounded-xl border border-slate-200/70 bg-white/70 px-3 py-1.5 shadow-sm backdrop-blur hover:bg-white transition"
@@ -150,61 +150,44 @@ export default function CVPage() {
       </header>
 
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:py-14 print:max-w-none print:px-0 print:py-8">
-        <div className="grid items-start gap-8 sm:grid-cols-[auto_1fr] print:grid-cols-1 print:gap-4">
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:py-14">
+        <div className="grid items-start gap-8 sm:grid-cols-[auto_1fr]">
           <div className="relative">
-            <div className="absolute -inset-3 -z-10 rounded-[28px] bg-gradient-to-br from-sky-200/60 via-indigo-200/50 to-fuchsia-200/40 blur-2xl print:hidden" />
+            <div className="absolute -inset-3 -z-10 rounded-[28px] bg-gradient-to-br from-sky-200/60 via-indigo-200/50 to-fuchsia-200/40 blur-2xl" />
             <img
               src="portrait.jpg"
               alt="Portrait of Mads Dixen"
-              className="h-40 w-40 sm:h-56 sm:w-56 md:h-64 md:w-64 rounded-3xl object-cover shadow-xl ring-4 ring-white print:h-40 print:w-40 print:rounded-2xl print:ring-0 print:shadow-md"
+              className="h-40 w-40 sm:h-56 sm:w-56 md:h-64 md:w-64 rounded-3xl object-cover shadow-xl ring-4 ring-white"
             />
           </div>
           <div>
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl print:text-3xl">{profile.name}</h2>
-            <p className="mt-1 text-base font-medium text-slate-600 print:text-lg">{profile.title}</p>
-            <div className="mt-3 h-1 w-24 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500 print:bg-slate-300 print:bg-none" />
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{profile.name}</h2>
+            <p className="mt-1 text-base font-medium text-slate-600">{profile.title}</p>
+            <div className="mt-3 h-1 w-24 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
             <p className="mt-4 max-w-3xl text-[15.5px] leading-relaxed text-slate-700">
               {profile.summary}
             </p>
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-slate-700 print:gap-2 print:text-base">
-              <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm print:bg-transparent print:px-0 print:py-0 print:border-none print:shadow-none">
-                {profile.location}
-              </span>
-              <a
-                href={`mailto:${profile.email}`}
-                className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4 print:bg-transparent print:px-0 print:py-0 print:border-none print:shadow-none"
-              >
-                {profile.email}
-              </a>
-              <a
-                href={`tel:${profile.phone.replace(/\s/g, '')}`}
-                className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4 print:bg-transparent print:px-0 print:py-0 print:border-none print:shadow-none"
-              >
-                {profile.phone}
-              </a>
-              <a
-                href={profile.linkedin}
-                className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4 print:bg-transparent print:px-0 print:py-0 print:border-none print:shadow-none"
-              >
-                LinkedIn
-              </a>
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-slate-700">
+              <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm">{profile.location}</span>
+              <a href={`mailto:${profile.email}`} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">{profile.email}</a>
+              <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">{profile.phone}</a>
+              <a href={profile.linkedin} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">LinkedIn</a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Skills */}
-      <section className="mx-auto max-w-5xl px-4 py-6 print:max-w-none print:px-0 print:py-4">
+      <section className="mx-auto max-w-5xl px-4 py-6">
         <div className="flex items-center gap-3">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-600 print:text-base print:tracking-normal">Core Skills</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400 print:bg-slate-300 print:bg-none" />
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-600">Core Skills</h3>
+          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
         </div>
-        <div className="mt-4 flex flex-wrap gap-2 print:text-sm">
+        <div className="mt-4 flex flex-wrap gap-2">
           {skills.map((s) => (
             <span
               key={s}
-              className="rounded-full bg-white/70 backdrop-blur px-3 py-1 text-sm border border-slate-200/60 shadow-sm hover:shadow transition print:bg-transparent print:border print:border-slate-200 print:shadow-none"
+              className="rounded-full bg-white/70 backdrop-blur px-3 py-1 text-sm border border-slate-200/60 shadow-sm hover:shadow transition"
             >
               {s}
             </span>
@@ -213,38 +196,38 @@ export default function CVPage() {
       </section>
 
       {/* Experience */}
-      <section className="mx-auto max-w-5xl px-4 py-8 print:max-w-none print:px-0 print:py-6">
+      <section className="mx-auto max-w-5xl px-4 py-8">
         <div className="flex items-center gap-3">
-          <h3 className="text-xl font-semibold tracking-tight print:text-lg">Experience</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400 print:bg-slate-300 print:bg-none" />
+          <h3 className="text-xl font-semibold tracking-tight">Experience</h3>
+          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
         </div>
         <div className="mt-5 space-y-6">
           {experience.map((item, idx) => (
             <article
               key={idx}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200/70 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg print:bg-transparent print:shadow-none print:border print:border-slate-200 print:rounded-xl print:break-inside-avoid"
+              className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200/70 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500 print:hidden" />
-              <div className="p-4 grid grid-cols-4 gap-4 print:grid-cols-3 print:gap-3">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
+              <div className="p-4 grid grid-cols-4 gap-4">
                 <div className="col-span-3">
-                  <h4 className="text-base font-semibold print:text-base">
+                  <h4 className="text-base font-semibold">
                     {item.role} <span className="text-slate-500">· {item.org}</span>
                     {item.type && (
-                      <span className="ml-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-600 print:bg-transparent">
+                      <span className="ml-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-600">
                         {item.type}
                       </span>
                     )}
                   </h4>
-                  <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700 print:text-sm print:space-y-1">
+                  <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
                     {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
                   </ul>
                 </div>
-                <div className="col-span-1 flex flex-col items-end justify-between print:items-start print:justify-start">
+                <div className="col-span-1 flex flex-col items-end justify-between">
                   {item.logo && (
                     <img
                       src={item.logo}
                       alt={`${item.org} logo`}
-                      className="max-h-24 max-w-24 object-contain mb-2 print:max-h-16 print:max-w-16"
+                      className="max-h-24 max-w-24 object-contain mb-2"
                     />
                   )}
                   <span className="text-sm text-slate-500">{item.period}</span>
@@ -255,63 +238,63 @@ export default function CVPage() {
         </div>
       </section>
 
-      {/* Education */}
-      <section className="mx-auto max-w-5xl px-4 pb-16 print:max-w-none print:px-0 print:pb-8">
-        <div className="flex items-center gap-3">
-          <h3 className="text-xl font-semibold tracking-tight print:text-lg">Education</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400 print:bg-slate-300 print:bg-none" />
-        </div>
+{/* Education */}
+<section className="mx-auto max-w-5xl px-4 pb-16">
+  <div className="flex items-center gap-3">
+    <h3 className="text-xl font-semibold tracking-tight">Education</h3>
+    <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
+  </div>
 
-        <div className="mt-5 space-y-6">
-          {education.map((e, i) => (
-            <div
-              key={i}
-              className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg print:bg-transparent print:shadow-none print:break-inside-avoid"
-            >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500 print:hidden" />
-              <div className="p-4 grid grid-cols-4 gap-4 print:grid-cols-3">
-                {/* Left column: degree + school */}
-                <div className="col-span-3">
-                  <p className="font-medium print:text-base">{e.degree}</p>
-                  <p className="mt-1 text-sm text-slate-600">{e.school}</p>
-                </div>
+  <div className="mt-5 space-y-6">
+    {education.map((e, i) => (
+      <div
+        key={i}
+        className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+      >
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
+        <div className="p-4 grid grid-cols-4 gap-4">
+          {/* Left column: degree + school */}
+          <div className="col-span-3">
+            <p className="font-medium">{e.degree}</p>
+            <p className="mt-1 text-sm text-slate-600">{e.school}</p>
+          </div>
 
-                {/* Right column: logo + year */}
-                <div className="col-span-1 flex flex-col items-end justify-between print:items-start">
-                  {e.logo && (
-                    <div className="flex-shrink-0">
-                      <img
-                        src={e.logo}
-                        alt={`${e.school} logo`}
-                        className="max-h-24 max-w-24 object-contain mb-2 print:max-h-16 print:max-w-16"
-                      />
-                    </div>
-                  )}
-                  <span className="text-sm text-slate-500">{e.period}</span>
-                </div>
+          {/* Right column: logo + year */}
+          <div className="col-span-1 flex flex-col items-end justify-between">
+            {e.logo && (
+              <div className="flex-shrink-0">
+                <img
+                  src={e.logo}
+                  alt={`${e.school} logo`}
+                  className="max-h-24 max-w-24 object-contain mb-2"
+                />
               </div>
-            </div>
-          ))}
+            )}
+            <span className="text-sm text-slate-500">{e.period}</span>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Certifications */}
-      <section className="mx-auto max-w-5xl px-4 pb-16 print:max-w-none print:px-0 print:pb-6 print:pt-2">
+      <section className="mx-auto max-w-5xl px-4 pb-16">
         <div className="flex items-center gap-3">
-          <h3 className="text-xl font-semibold tracking-tight print:text-lg">Certifications</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400 print:bg-slate-300 print:bg-none" />
+          <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
+          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
         </div>
 
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
             <div
               key={i}
-              className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-6 transition hover:-translate-y-0.5 hover:shadow-lg print:bg-transparent print:shadow-none"
+              className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
             >
               <img
                 src={`${cert}`}
                 alt={`Certification ${i + 1}`}
-                className="max-h-24 object-contain print:max-h-16"
+                className="max-h-24 object-contain"
               />
             </div>
           ))}
@@ -319,8 +302,8 @@ export default function CVPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200/70 bg-gradient-to-b from-white to-slate-100 py-6 text-sm text-slate-500 print:border-t print:bg-transparent print:px-0 print:py-4">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 print:max-w-none print:px-0">
+      <footer className="border-t border-slate-200/70 bg-gradient-to-b from-white to-slate-100 py-6 text-sm text-slate-500">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4">
           {/*<p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>*/}
           <div className="flex items-center gap-3">
             <a href={profile.linkedin} className="underline underline-offset-4">LinkedIn</a>
