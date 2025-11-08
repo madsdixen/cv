@@ -40,18 +40,16 @@ export default function CVPage() {
         'Cross-functional coordination with operations, IT, faculties, and vendors.',
         'Bridge business & IT with focus on efficiency and user experience.',
       ],
-    },
-    {
-      role: 'Local Information Security Coordinator',
-      org: 'AU Uddannelse',
-      period: '2024 – Present',
-      logo: 'logos/au.png',
-      type: 'Full-time',
-      bullets: [
-        'Coordinate local ISMS activities and awareness initiatives.',
-        'Support risk assessments, asset documentation, and management reporting.',
-        'Align with ISO27001/NIS2/GDPR obligations; incident liaison with central IT.',
-      ],
+      coordinatorRole: {
+        title: 'Local Information Security Coordinator',
+        org: 'AU Uddannelse',
+        period: '2024 – Present',
+        bullets: [
+          'Coordinate local ISMS activities and awareness initiatives.',
+          'Support risk assessments, asset documentation, and management reporting.',
+          'Align with ISO27001/NIS2/GDPR obligations; incident liaison with central IT.',
+        ],
+      },
     },
     {
       role: 'Cybersecurity Consultant',
@@ -135,15 +133,7 @@ export default function CVPage() {
                 <p className="text-xs text-slate-500">{profile.title}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-sm">
-              <button
-                onClick={() => window.print()}
-                className="rounded-xl border border-slate-200/70 bg-white/70 px-3 py-1.5 shadow-sm backdrop-blur hover:bg-white transition"
-                aria-label="Print CV"
-              >
-                Print
-              </button>
-            </div>
+            <div className="flex items-center gap-2 text-sm" />
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
         </div>
@@ -221,6 +211,17 @@ export default function CVPage() {
                   <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
                     {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
                   </ul>
+                  {item.coordinatorRole && (
+                    <div className="mt-4 rounded-2xl border border-slate-200/70 bg-slate-50/80 p-3 text-sm text-slate-700">
+                      <p className="font-semibold text-slate-800">
+                        {item.coordinatorRole.title}{' '}
+                        <span className="text-slate-500">· {item.coordinatorRole.org}</span>
+                      </p>
+                      <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
+                        {item.coordinatorRole.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                      </ul>
+                    </div>
+                  )}
                 </div>
                 <div className="col-span-1 flex flex-col items-end justify-between">
                   {item.logo && (
@@ -231,6 +232,9 @@ export default function CVPage() {
                     />
                   )}
                   <span className="text-sm text-slate-500">{item.period}</span>
+                  {item.coordinatorRole?.period && (
+                    <span className="text-xs text-slate-400 mt-1">{item.coordinatorRole.period}</span>
+                  )}
                 </div>
               </div>
             </article>
