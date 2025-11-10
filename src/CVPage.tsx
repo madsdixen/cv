@@ -297,11 +297,11 @@ export default function CVPage() {
               key={i}
               className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <div className="flex h-24 w-24 items-center justify-center">
+              <div className="flex h-36 w-36 items-center justify-center">
                 <img
                   src={`${cert}`}
                   alt={`Certification ${i + 1}`}
-                  className="h-16 w-16 object-contain"
+                  className="h-24 w-24 object-contain"
                 />
               </div>
             </div>
