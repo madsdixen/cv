@@ -234,9 +234,6 @@ export default function CVPage() {
                     </div>
                   )}
                   <span className="text-sm text-slate-500">{item.period}</span>
-                  {item.coordinatorRole?.period && (
-                    <span className="text-xs text-slate-400 mt-1">{item.coordinatorRole.period}</span>
-                  )}
                 </div>
               </div>
             </article>
