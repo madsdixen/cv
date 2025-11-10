@@ -53,7 +53,7 @@ export default function CVPage() {
     },
     {
       role: 'Cybersecurity Consultant',
-      org: 'IQ Metal - Integrated Metal Solutions',
+      org: 'IQ Metal – Integrated Metal Solutions',
       period: '2024',
       logo: 'logos/iqmetal.png',
       type: 'Internship',
