@@ -212,12 +212,12 @@ export default function CVPage() {
                     {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
                   </ul>
                   {item.coordinatorRole && (
-                    <div className="mt-4 rounded-2xl border border-slate-200/70 bg-slate-50/80 p-3 text-sm text-slate-700">
+                    <div className="mt-3 text-sm text-slate-700">
                       <p className="font-semibold text-slate-800">
                         {item.coordinatorRole.title}{' '}
                         <span className="text-slate-500">· {item.coordinatorRole.org}</span>
                       </p>
-                      <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
+                      <ul className="mt-1 list-disc space-y-1 pl-5 text-[15px] leading-relaxed text-slate-700">
                         {item.coordinatorRole.bullets.map((b, i) => <li key={i}>{b}</li>)}
                       </ul>
                     </div>
