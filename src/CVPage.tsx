@@ -244,68 +244,65 @@ export default function CVPage() {
         </div>
       </section>
 
-{/* Education */}
-<section className="mx-auto max-w-5xl px-4 pb-16">
-  <div className="flex items-center gap-3">
-    <h3 className="text-xl font-semibold tracking-tight">Education</h3>
-    <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
-  </div>
-
-  <div className="mt-5 space-y-6">
-    {education.map((e, i) => (
-      <div
-        key={i}
-        className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
-      >
-        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
-        <div className="p-4 grid grid-cols-4 gap-4">
-          {/* Left column: degree + school */}
-          <div className="col-span-3">
-            <p className="font-medium">{e.degree}</p>
-            <p className="mt-1 text-sm text-slate-600">{e.school}</p>
-          </div>
-
-          {/* Right column: logo + year */}
-          <div className="col-span-1 flex flex-col items-end justify-between">
-            {e.logo && (
-              <div className="mb-2 flex h-24 w-24 items-center justify-center rounded-xl border border-slate-200 bg-white">
-                <img
-                  src={e.logo}
-                  alt={`${e.school} logo`}
-                  className="h-16 w-16 object-contain"
-                />
-              </div>
-            )}
-            <span className="text-sm text-slate-500">{e.period}</span>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
-
-      {/* Certifications */}
+      {/* Education + Certifications */}
       <section className="mx-auto max-w-5xl px-4 pb-16">
-        <div className="flex items-center gap-3">
-          <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
-        </div>
-
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
-            <div
-              key={i}
-              className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <div className="flex h-36 w-36 items-center justify-center">
-                <img
-                  src={`${cert}`}
-                  alt={`Certification ${i + 1}`}
-                  className="h-24 w-24 object-contain"
-                />
-              </div>
+        <div className="grid gap-10 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3">
+              <h3 className="text-xl font-semibold tracking-tight">Education</h3>
+              <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
             </div>
-          ))}
+            <div className="mt-5 space-y-6">
+              {education.map((e, i) => (
+                <div
+                  key={i}
+                  className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
+                  <div className="p-4 grid grid-cols-4 gap-4">
+                    <div className="col-span-3">
+                      <p className="font-medium">{e.degree}</p>
+                      <p className="mt-1 text-sm text-slate-600">{e.school}</p>
+                    </div>
+                    <div className="col-span-1 flex flex-col items-end justify-between">
+                      {e.logo && (
+                        <div className="mb-2 flex h-24 w-24 items-center justify-center rounded-xl border border-slate-200 bg-white">
+                          <img
+                            src={e.logo}
+                            alt={`${e.school} logo`}
+                            className="h-16 w-16 object-contain"
+                          />
+                        </div>
+                      )}
+                      <span className="text-sm text-slate-500">{e.period}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3">
+              <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
+              <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
+            </div>
+            <div className="mt-6 grid grid-cols-1 gap-6">
+              {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-4 transition hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <div className="flex h-36 w-36 items-center justify-center">
+                    <img
+                      src={`${cert}`}
+                      alt={`Certification ${i + 1}`}
+                      className="h-24 w-24 object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
