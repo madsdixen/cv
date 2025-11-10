@@ -282,11 +282,15 @@ export default function CVPage() {
             </div>
           </div>
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
-              <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
-            </div>
-            <div className="mt-6 grid grid-cols-1 gap-6">
+            <div className="relative overflow-hidden rounded-3xl border border-slate-200/70 bg-gradient-to-b from-slate-50 via-white to-slate-100 p-6 shadow-lg">
+              <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
+              <div className="relative flex flex-col gap-2">
+                <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
+                <p className="text-sm text-slate-600">
+                  Select credentials that reinforce product, security, and leadership focus.
+                </p>
+              </div>
+              <div className="mt-6 grid grid-cols-1 gap-6">
               {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
                 <div
                   key={i}
@@ -301,6 +305,10 @@ export default function CVPage() {
                   </div>
                 </div>
               ))}
+            </div>
+              <div className="mt-6 text-xs uppercase tracking-[0.2em] text-slate-500 text-center">
+                Lifelong Learning
+              </div>
             </div>
           </div>
         </div>
