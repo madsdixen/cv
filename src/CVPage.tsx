@@ -150,7 +150,7 @@ export default function CVPage() {
                 href="https://madsdixen.github.io/cv/"
                 className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4"
               >
-                Online CV
+                CV
               </a>
             </div>
           </div>
