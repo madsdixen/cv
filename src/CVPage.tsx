@@ -303,7 +303,7 @@ export default function CVPage() {
             <a href={profile.linkedin} className="underline underline-offset-4">LinkedIn</a>
             <a href={`mailto:${profile.email}`} className="underline underline-offset-4">Email</a>
             <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="underline underline-offset-4">Phone</a>
-            <a href="https://madsdixen.github.io/cv/" className="underline underline-offset-4">Online CV</a>
+            <a href="https://madsdixen.github.io/cv/" className="underline underline-offset-4">CV</a>
           </div>
         </div>
       </footer>
