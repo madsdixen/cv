@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect, useRef, useState } from 'react'
 
 export default function CVPage() {
   const profile = useMemo(() => ({
@@ -123,7 +123,11 @@ export default function CVPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-800">
       {/* Header */}
-      <header className="sticky top-0 z-20 border-b border-slate-200/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <header
+        className={`sticky top-0 z-20 border-b border-slate-200/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 transition-all duration-500 ${
+          showHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+        }`}
+      >
         <div className="relative mx-auto max-w-5xl px-4">
           <div className="flex items-center justify-between py-3">
             <div className="flex items-center gap-3">
@@ -319,3 +323,36 @@ export default function CVPage() {
     </div>
   )
 }
+  const [showHeader, setShowHeader] = useState(false)
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const hasScrolled = window.scrollY > 24
+      if (!hasScrolled) {
+        if (hideTimer.current) {
+          clearTimeout(hideTimer.current)
+          hideTimer.current = null
+        }
+        setShowHeader(false)
+        return
+      }
+
+      setShowHeader(true)
+      if (hideTimer.current) {
+        clearTimeout(hideTimer.current)
+      }
+      hideTimer.current = setTimeout(() => {
+        setShowHeader(false)
+        hideTimer.current = null
+      }, 1800)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (hideTimer.current) {
+        clearTimeout(hideTimer.current)
+      }
+    }
+  }, [])
