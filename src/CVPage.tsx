@@ -323,10 +323,11 @@ export default function CVPage() {
     </div>
   )
 }
-  const [showHeader, setShowHeader] = useState(false)
+  const [showHeader, setShowHeader] = useState(true)
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
     const handleScroll = () => {
       const hasScrolled = window.scrollY > 24
       if (!hasScrolled) {
@@ -334,7 +335,10 @@ export default function CVPage() {
           clearTimeout(hideTimer.current)
           hideTimer.current = null
         }
-        setShowHeader(false)
+        hideTimer.current = setTimeout(() => {
+          setShowHeader(false)
+          hideTimer.current = null
+        }, 1200)
         return
       }
 
