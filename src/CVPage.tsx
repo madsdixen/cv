@@ -271,7 +271,7 @@ export default function CVPage() {
               {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center rounded-2xl border border-white/40 bg-white/30 p-4 shadow-md backdrop-blur transition hover:-translate-y-0.5 hover:shadow-xl"
+                  className="flex items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-sky-200/50 via-indigo-200/40 to-fuchsia-200/50 p-4 shadow-md backdrop-blur-lg transition hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   <div className="flex h-36 w-36 items-center justify-center">
                     <img
