@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useRef, useState } from 'react'
+import React, { useMemo } from 'react'
 
 export default function CVPage() {
   const profile = useMemo(() => ({
@@ -122,27 +122,6 @@ export default function CVPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-800">
-      {/* Header */}
-      <header
-        className={`sticky top-0 z-20 border-b border-slate-200/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 transition-all duration-500 ${
-          showHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
-        }`}
-      >
-        <div className="relative mx-auto max-w-5xl px-4">
-          <div className="flex items-center justify-between py-3">
-            <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 shadow-sm" />
-              <div>
-                <h1 className="text-lg font-semibold leading-tight tracking-tight">{profile.name}</h1>
-                <p className="text-xs text-slate-500">{profile.title}</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-sm" />
-          </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
-        </div>
-      </header>
-
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-4 py-12 sm:py-14">
         <div className="grid items-start gap-8 sm:grid-cols-[auto_1fr]">
@@ -323,40 +302,3 @@ export default function CVPage() {
     </div>
   )
 }
-  const [showHeader, setShowHeader] = useState(true)
-  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const handleScroll = () => {
-      const hasScrolled = window.scrollY > 24
-      if (!hasScrolled) {
-        if (hideTimer.current) {
-          clearTimeout(hideTimer.current)
-          hideTimer.current = null
-        }
-        hideTimer.current = setTimeout(() => {
-          setShowHeader(false)
-          hideTimer.current = null
-        }, 1200)
-        return
-      }
-
-      setShowHeader(true)
-      if (hideTimer.current) {
-        clearTimeout(hideTimer.current)
-      }
-      hideTimer.current = setTimeout(() => {
-        setShowHeader(false)
-        hideTimer.current = null
-      }, 1800)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (hideTimer.current) {
-        clearTimeout(hideTimer.current)
-      }
-    }
-  }, [])
