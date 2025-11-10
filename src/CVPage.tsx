@@ -266,12 +266,12 @@ export default function CVPage() {
               <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
               <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
             </div>
-            <div className="relative overflow-hidden rounded-3xl border border-sky-200/80 bg-gradient-to-b from-sky-50 via-indigo-50 to-fuchsia-50 p-6 shadow-lg">
+            <div className="relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white p-6 shadow-lg">
               <div className="mt-2 grid grid-cols-1 gap-6">
               {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-4 transition hover:-translate-y-0.5 hover:shadow-lg"
+                  className="flex items-center justify-center rounded-2xl border border-white/40 bg-white/30 p-4 shadow-md backdrop-blur transition hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   <div className="flex h-36 w-36 items-center justify-center">
                     <img
