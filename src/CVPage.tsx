@@ -30,7 +30,7 @@ export default function CVPage() {
   const experience = [
     {
       role: 'Product Manager',
-      org: 'Studiesystemer (AU)',
+      org: 'Studiesystemer – Aarhus University',
       period: '2024 – Present',
       logo: 'logos/au.png',
       type: 'Full-time',
@@ -53,7 +53,7 @@ export default function CVPage() {
     },
     {
       role: 'Cybersecurity Consultant',
-      org: 'Integrated Metal Solutions',
+      org: 'IQ Metal - Integrated Metal Solutions',
       period: '2024',
       logo: 'logos/iqmetal.png',
       type: 'Internship',
@@ -66,7 +66,7 @@ export default function CVPage() {
     },
         {
       role: 'UX Designer',
-      org: 'SaaS (Water Sports Platform)',
+      org: 'Wakeque',
       period: '2024',
       logo: 'logos/wakeque.png',
       type: 'Internship',
@@ -94,7 +94,7 @@ export default function CVPage() {
       logo: 'logos/applicate.png',
       type: 'Internship',
       bullets: [
-        'Studying the ISO27001 standard while creating and managing an information security management system.',
+        'Studied the ISO27001 standard while building and running an information security management system.',
       ],
     },
   ]
