@@ -25,6 +25,7 @@ export default function CVPage() {
     'Testing · QA',
     'Agile · Scrum',
     'Automation Solutions',
+    'AI',
   ]
 
   const experience = [
