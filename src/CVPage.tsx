@@ -105,21 +105,18 @@ export default function CVPage() {
       school: 'BSS – Aarhus University',
       period: '2021 – 2023',
       logo: 'logos/bss.png',
-      description: 'Focused on digital strategy, stakeholder alignment, and secure product delivery across complex organisations.',
     },
     {
       degree: 'BA – Digital Design, IT, Aesthetics & Interaction & Information Studies',
       school: 'Aarhus University',
       period: '2017 – 2020',
       logo: 'logos/au.png',
-      description: 'Combined UX, interaction design, and information studies to design data-informed digital experiences.',
     },
     {
       degree: 'AP – Service, Hospitality & Tourism Management (Sport & Event)',
       school: 'Dania – Business Academy',
       period: '2015 – 2017',
       logo: 'logos/dania.png',
-      description: 'Specialised in service design and event logistics with a focus on partner and guest experience.',
     },
   ]
 
@@ -266,9 +263,6 @@ export default function CVPage() {
           <div className="col-span-3">
             <p className="font-medium">{e.degree}</p>
             <p className="mt-1 text-sm text-slate-600">{e.school}</p>
-            {e.description && (
-              <p className="mt-2 text-sm text-slate-600/90">{e.description}</p>
-            )}
           </div>
 
           {/* Right column: logo + year */}
