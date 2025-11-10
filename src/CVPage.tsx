@@ -225,11 +225,13 @@ export default function CVPage() {
                 </div>
                 <div className="col-span-1 flex flex-col items-end justify-between">
                   {item.logo && (
-                    <img
-                      src={item.logo}
-                      alt={`${item.org} logo`}
-                      className="max-h-24 max-w-24 object-contain mb-2"
-                    />
+                    <div className="mb-2 flex h-24 w-24 items-center justify-center rounded-xl border border-slate-200 bg-white">
+                      <img
+                        src={item.logo}
+                        alt={`${item.org} logo`}
+                        className="h-16 w-16 object-contain"
+                      />
+                    </div>
                   )}
                   <span className="text-sm text-slate-500">{item.period}</span>
                   {item.coordinatorRole?.period && (
@@ -266,11 +268,11 @@ export default function CVPage() {
           {/* Right column: logo + year */}
           <div className="col-span-1 flex flex-col items-end justify-between">
             {e.logo && (
-              <div className="flex-shrink-0">
+              <div className="mb-2 flex h-24 w-24 items-center justify-center rounded-xl border border-slate-200 bg-white">
                 <img
                   src={e.logo}
                   alt={`${e.school} logo`}
-                  className="max-h-24 max-w-24 object-contain mb-2"
+                  className="h-16 w-16 object-contain"
                 />
               </div>
             )}
@@ -295,11 +297,13 @@ export default function CVPage() {
               key={i}
               className="flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white shadow-sm p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <img
-                src={`${cert}`}
-                alt={`Certification ${i + 1}`}
-                className="max-h-24 object-contain"
-              />
+              <div className="flex h-24 w-24 items-center justify-center">
+                <img
+                  src={`${cert}`}
+                  alt={`Certification ${i + 1}`}
+                  className="h-16 w-16 object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>
