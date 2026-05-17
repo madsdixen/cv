@@ -556,6 +556,10 @@ export default function CVPage() {
             </article>
           ))}
         </div>
+        <div className="mt-4 rounded-md border border-zinc-200 bg-white p-5">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">{copy.sections.tools}</h3>
+          <p className="mt-3 text-sm leading-6 text-zinc-700">{copy.tools}</p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-10 lg:px-8">
@@ -605,29 +609,19 @@ export default function CVPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-10 lg:grid-cols-[1.4fr_1fr] lg:px-8">
-        <div>
-          <SectionHeading>{copy.sections.education}</SectionHeading>
-          <div className="space-y-3">
-            {copy.education.map((item) => (
-              <article key={item.degree} className="grid gap-4 rounded-md border border-zinc-200 bg-white p-5 sm:grid-cols-[auto_1fr_auto]">
-                <Logo src={item.logo} alt={`${item.school} logo`} />
-                <div>
-                  <h3 className="font-semibold text-zinc-950">{item.degree}</h3>
-                  <p className="mt-1 text-sm text-zinc-600">{item.school}</p>
-                </div>
-                <p className="text-sm font-medium text-zinc-500 sm:text-right">{item.period}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <SectionHeading>{copy.sections.tools}</SectionHeading>
-          <div className="rounded-md border border-zinc-200 bg-white p-5">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">{copy.sections.tools}</h3>
-            <p className="mt-3 text-sm leading-6 text-zinc-700">{copy.tools}</p>
-          </div>
+      <section className="mx-auto max-w-6xl px-5 pb-10 lg:px-8">
+        <SectionHeading>{copy.sections.education}</SectionHeading>
+        <div className="space-y-3">
+          {copy.education.map((item) => (
+            <article key={item.degree} className="grid gap-4 rounded-md border border-zinc-200 bg-white p-5 sm:grid-cols-[auto_1fr_auto]">
+              <Logo src={item.logo} alt={`${item.school} logo`} />
+              <div>
+                <h3 className="font-semibold text-zinc-950">{item.degree}</h3>
+                <p className="mt-1 text-sm text-zinc-600">{item.school}</p>
+              </div>
+              <p className="text-sm font-medium text-zinc-500 sm:text-right">{item.period}</p>
+            </article>
+          ))}
         </div>
       </section>
 
