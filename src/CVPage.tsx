@@ -1,312 +1,637 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
-export default function CVPage() {
-  const profile = useMemo(() => ({
-    name: 'Mads Dixen',
-    title: 'IT & Product Management | InfoSec Coordination',
-    summary:
-      "Strategic and forward-thinking IT & Product Management professional with a master's degree in IT, Communication & Organization. Experienced in leading digital transformation, managing complex system landscapes, and coordinating information security. Strong blend of product management, cybersecurity, and stakeholder engagement to streamline processes, enhance user experiences, and ensure compliance.",
-    location: 'Aarhus, Denmark',
-    email: 'mads.dixen@gmail.com',
-    phone: '+45 31 31 38 68',
-    linkedin: 'https://www.linkedin.com/in/madsdixen/',
-  }), [])
+type Language = 'da' | 'en'
 
-  const skills = [
-    'Product Management',
-    'Roadmaps & Backlogs',
-    'Stakeholder Management',
-    'Process Optimization',
-    'Information Security (ISO27001, NIS2, GDPR)',
-    'Azure · Power Platform',
-    'API Management · Integrations',
-    'SQL · JavaScript · Python · C#',
-    'UX/UI',
-    'Testing · QA',
-    'Agile · Scrum',
-    'Automation Solutions',
-    'AI',
-  ]
+type ExperienceItem = {
+  role: string
+  org: string
+  period: string
+  logo: string
+  type: string
+  summary: string
+  bullets: string[]
+  relatedRole?: {
+    title: string
+    org: string
+    period: string
+    bullets: string[]
+  }
+}
 
-  const experience = [
-    {
-      role: 'Product Manager',
-      org: 'Studiesystemer – Aarhus University',
-      period: '2024 – Present',
-      logo: 'logos/au.png',
-      type: 'Full-time',
-      bullets: [
-        'Product management for digital exam & evaluation systems (WISEflow, Explorance Blue).',
-        'Own roadmaps & backlogs; drive upgrades, testing, data tasks, and quality gates.',
-        'Cross-functional coordination with operations, IT, faculties, and vendors.',
-        'Bridge business & IT with focus on efficiency and user experience.',
-      ],
-      coordinatorRole: {
-        title: 'Local Information Security Coordinator',
-        org: 'AU Uddannelse',
-        period: '2024 – Present',
+const contact = {
+  name: 'Mads Dixen',
+  email: 'mads.dixen@gmail.com',
+  phone: '+45 31 31 38 68',
+  linkedin: 'https://www.linkedin.com/in/madsdixen/',
+  cvUrl: 'https://madsdixen.github.io/cv/',
+}
+
+const content = {
+  da: {
+    languageName: 'Dansk',
+    eyebrow: 'Product Manager / Product Owner',
+    title: 'Product Manager med teknisk tyngde, UX-forståelse og stærk delivery-disciplin',
+    location: 'Aarhus, Danmark',
+    intro:
+      'Jeg omsætter komplekse behov, systemlandskaber og compliancekrav til klare produktprioriteter, stærke samarbejdsflader og løsninger, der kan drives sikkert i drift. Min profil kombinerer product management, informationssikkerhed, UX, softwareforståelse og forretningsnær stakeholderstyring.',
+    targetRoles: ['Product Manager', 'Product Owner', 'Digital Product Lead', 'IT Product Manager'],
+    ctaPrimary: 'Kontakt',
+    ctaSecondary: 'LinkedIn',
+    meta: {
+      current: 'Nuværende fokus',
+      education: 'Uddannelse',
+      availability: 'Målrettet roller',
+    },
+    metaItems: [
+      'Produktansvar for digitale studie-, eksamens- og evalueringssystemer',
+      'MSc ITKO, Aarhus BSS',
+      'PM/PO-roller i digitale produkter, SaaS, platforme og IT-forretning',
+    ],
+    sections: {
+      value: 'Det jeg bringer som PM/PO',
+      skills: 'Kompetencer',
+      experience: 'Erfaring',
+      education: 'Uddannelse',
+      certifications: 'Certificeringer',
+      tools: 'Teknologisk forståelse',
+      footer: 'Kontakt',
+    },
+    valueProps: [
+      {
+        label: 'Produktretning',
+        text: 'Prioriterer roadmap og backlog ud fra brugerbehov, driftsrealitet, risiko og forretningsværdi.',
+      },
+      {
+        label: 'Stakeholderledelse',
+        text: 'Skaber fælles retning på tværs af brugere, ledelse, IT, leverandører og fageksperter.',
+      },
+      {
+        label: 'Discovery til delivery',
+        text: 'Kobler research, procesforståelse, test, kvalitetssikring og implementering til en praktisk produktproces.',
+      },
+      {
+        label: 'Sikker digitalisering',
+        text: 'Bringer ISO27001-, NIS2-, GDPR- og risikoperspektiver ind i produktbeslutninger uden at miste fremdrift.',
+      },
+    ],
+    skillGroups: [
+      {
+        label: 'Product',
+        items: ['Roadmaps', 'Backlog management', 'Prioritering', 'Kravarbejde', 'Release- og upgrade-koordinering'],
+      },
+      {
+        label: 'Delivery',
+        items: ['Agile/Scrum', 'Test og QA', 'Procesoptimering', 'Leverandørsamarbejde', 'Kvalitetsporte'],
+      },
+      {
+        label: 'Discovery & UX',
+        items: ['User research', 'Kunderejser', 'Wireframes', 'Prototyper', 'Brugercentreret design'],
+      },
+      {
+        label: 'Tech & Governance',
+        items: ['Informationssikkerhed', 'ISO27001', 'NIS2', 'GDPR', 'Integrationer', 'Automatisering'],
+      },
+    ],
+    experience: [
+      {
+        role: 'Product Manager',
+        org: 'Studiesystemer, Aarhus University',
+        period: '2024 - nu',
+        logo: 'logos/au.png',
+        type: 'Fuldtid',
+        summary:
+          'Produktansvar for digitale eksamens- og evalueringssystemer med mange brugergrupper, driftsafhængigheder og leverandørflader.',
         bullets: [
-          'Coordinate local ISMS activities and awareness initiatives.',
-          'Support risk assessments, asset documentation, and management reporting.',
-          'Align with ISO27001/NIS2/GDPR obligations; incident liaison with central IT.',
+          'Ejer og prioriterer roadmap, backlog, opgraderinger, testforløb, datakvalitet og kvalitetssikring for WISEflow og Explorance Blue.',
+          'Oversætter behov fra forretning, fakulteter, drift, support og leverandører til klare produktbeslutninger og gennemførlige leverancer.',
+          'Driver koordinering på tværs af IT, uddannelsesadministration og eksterne systemleverandører med fokus på stabil drift og bedre brugeroplevelser.',
+          'Bruger teknisk forståelse til at kvalificere integrationer, databehov, fejlsøgning og konsekvenser ved ændringer i komplekse systemlandskaber.',
+        ],
+        relatedRole: {
+          title: 'Lokal informationssikkerhedskoordinator',
+          org: 'AU Uddannelse',
+          period: '2024 - nu',
+          bullets: [
+            'Koordinerer lokale ISMS-aktiviteter, awareness, aktivoverblik, risikovurderinger og rapportering.',
+            'Kobler produkt- og driftsbeslutninger til ISO27001-, NIS2- og GDPR-hensyn i samarbejde med central IT.',
+          ],
+        },
+      },
+      {
+        role: 'Cybersecurity Consultant',
+        org: 'IQ Metal - Integrated Metal Solutions',
+        period: '2024',
+        logo: 'logos/iqmetal.png',
+        type: 'Praktik',
+        summary:
+          'Praktisk arbejde med informationssikkerhed, risici og implementerbare sikkerhedstiltag i en produktionsvirksomhed.',
+        bullets: [
+          'Udarbejdede sikkerhedspolitikker, procedurer og awarenessmateriale med fokus på anvendelighed i hverdagen.',
+          'Gennemførte risikovurderinger og sårbarhedsanalyser som grundlag for prioritering af sikkerhedsindsatser.',
+          'Omsatte compliancekrav og tekniske risici til konkrete anbefalinger for ledelse og medarbejdere.',
         ],
       },
+      {
+        role: 'UX Designer',
+        org: 'Wakeque',
+        period: '2024',
+        logo: 'logos/wakeque.png',
+        type: 'Praktik',
+        summary:
+          'Produktnært UX-arbejde på onboarding og kunderejse for et vertikalt SaaS-produkt.',
+        bullets: [
+          'Kortlagde brugerbehov og optimerede onboardingflow med research, wireframes og prototyper.',
+          'Samarbejdede med udviklere om at omsætte brugerindsigter til implementerbare produktforbedringer.',
+          'Bidrog til mere tydelige brugerflows og bedre sammenhæng mellem produktværdi, interface og teknisk løsning.',
+        ],
+      },
+      {
+        role: 'Teaching Assistant, Software Development',
+        org: 'MSc ITKO, Aarhus BSS',
+        period: '2022 - 2023',
+        logo: 'logos/bss.png',
+        type: 'Deltid',
+        summary:
+          'Undervisnings- og feedbackrolle i softwareudvikling for ITKO-studerende.',
+        bullets: [
+          'Faciliterede øvelser, gav feedback på opgaver og hjalp studerende med at forstå softwareudvikling i praksis.',
+          'Styrkede evnen til at forklare tekniske problemstillinger klart til ikke-specialister.',
+        ],
+      },
+      {
+        role: 'ISO27001 Consultant',
+        org: 'ApplicateIT',
+        period: '2021',
+        logo: 'logos/applicate.png',
+        type: 'Praktik',
+        summary:
+          'Arbejde med ISO27001 og opbygning af informationssikkerhedsledelse i praksis.',
+        bullets: [
+          'Arbejdede med ISO27001-standarden og bidrog til etablering og drift af et information security management system.',
+        ],
+      },
+    ] satisfies ExperienceItem[],
+    education: [
+      {
+        degree: 'MSc - IT, Communication & Organization (ITKO)',
+        school: 'Aarhus BSS, Aarhus University',
+        period: '2021 - 2023',
+        logo: 'logos/bss.png',
+      },
+      {
+        degree: 'BA - Digital Design, IT, Aesthetics & Interaction and Information Studies',
+        school: 'Aarhus University',
+        period: '2017 - 2020',
+        logo: 'logos/au.png',
+      },
+      {
+        degree: 'AP - Service, Hospitality & Tourism Management (Sport & Event)',
+        school: 'Dania - Business Academy',
+        period: '2015 - 2017',
+        logo: 'logos/dania.png',
+      },
+    ],
+    certifications: [
+      { name: 'Professional Product Focus', image: 'ppf.png' },
+      { name: 'Google Cybersecurity Certificate', image: 'gcc.png' },
+      { name: 'Business English Academy', image: 'bea.png' },
+    ],
+    tools:
+      'Azure, Power Platform, API management, integrationer, SQL, JavaScript, Python, C#, test/QA, automatisering og AI-værktøjer.',
+    footerText: 'Produkt, teknologi, UX og governance samlet i én PM/PO-profil.',
+  },
+  en: {
+    languageName: 'English',
+    eyebrow: 'Product Manager / Product Owner',
+    title: 'Product Manager with technical depth, UX judgment and strong delivery discipline',
+    location: 'Aarhus, Denmark',
+    intro:
+      'I turn complex needs, system landscapes and compliance requirements into clear product priorities, strong stakeholder alignment and solutions that can operate reliably. My profile combines product management, information security, UX, software understanding and business-oriented stakeholder management.',
+    targetRoles: ['Product Manager', 'Product Owner', 'Digital Product Lead', 'IT Product Manager'],
+    ctaPrimary: 'Contact',
+    ctaSecondary: 'LinkedIn',
+    meta: {
+      current: 'Current focus',
+      education: 'Education',
+      availability: 'Target roles',
     },
-    {
-      role: 'Cybersecurity Consultant',
-      org: 'IQ Metal – Integrated Metal Solutions',
-      period: '2024',
-      logo: 'logos/iqmetal.png',
-      type: 'Internship',
-      bullets: [
-        'Developing and implementing security policies and procedures.',
-        'Conducting risk assessments and vulnerability analyses.',
-        'Providing training and awareness programs for employees.',
-        'Ensuring compliance with industry standards and regulations.',        
-      ],
+    metaItems: [
+      'Product ownership for digital study, exam and evaluation systems',
+      'MSc ITKO, Aarhus BSS',
+      'PM/PO roles in digital products, SaaS, platforms and business-facing IT',
+    ],
+    sections: {
+      value: 'What I bring as a PM/PO',
+      skills: 'Capabilities',
+      experience: 'Experience',
+      education: 'Education',
+      certifications: 'Certifications',
+      tools: 'Technical fluency',
+      footer: 'Contact',
     },
-        {
-      role: 'UX Designer',
-      org: 'Wakeque',
-      period: '2024',
-      logo: 'logos/wakeque.png',
-      type: 'Internship',
-      bullets: [
-        'Optimized onboarding and customer journey for a vertical SaaS product.',
-        'Conducted user research, created wireframes, and developed prototypes.',
-        'Collaborated with developers to implement user-centric designs.',
-      ],
-    },
-    {
-      role: 'Teaching Assistant (Software Development)',
-      org: 'MSc ITKO – BSS Aarhus University',
-      period: '2022 – 2023',
-      logo: 'logos/bss.png',
-      type: 'Part-time',
-      bullets: [
-        'Assisted course delivery and practical exercises in software development.',
-        'Provided student support and feedback on assignments and projects.',
-      ],
-    },
-    {
-      role: 'ISO27001 Consultant',
-      org: 'ApplicateIT',
-      period: '2021',
-      logo: 'logos/applicate.png',
-      type: 'Internship',
-      bullets: [
-        'Studied the ISO27001 standard while building and running an information security management system.',
-      ],
-    },
-  ]
+    valueProps: [
+      {
+        label: 'Product direction',
+        text: 'Prioritizes roadmap and backlog through user needs, operational reality, risk and business value.',
+      },
+      {
+        label: 'Stakeholder leadership',
+        text: 'Creates shared direction across users, management, IT, vendors and subject-matter experts.',
+      },
+      {
+        label: 'Discovery to delivery',
+        text: 'Connects research, process understanding, testing, QA and implementation in a practical product workflow.',
+      },
+      {
+        label: 'Secure digitalization',
+        text: 'Brings ISO27001, NIS2, GDPR and risk perspectives into product decisions without losing momentum.',
+      },
+    ],
+    skillGroups: [
+      {
+        label: 'Product',
+        items: ['Roadmaps', 'Backlog management', 'Prioritization', 'Requirements', 'Release and upgrade coordination'],
+      },
+      {
+        label: 'Delivery',
+        items: ['Agile/Scrum', 'Testing and QA', 'Process optimization', 'Vendor collaboration', 'Quality gates'],
+      },
+      {
+        label: 'Discovery & UX',
+        items: ['User research', 'Customer journeys', 'Wireframes', 'Prototypes', 'User-centered design'],
+      },
+      {
+        label: 'Tech & Governance',
+        items: ['Information security', 'ISO27001', 'NIS2', 'GDPR', 'Integrations', 'Automation'],
+      },
+    ],
+    experience: [
+      {
+        role: 'Product Manager',
+        org: 'Studiesystemer, Aarhus University',
+        period: '2024 - Present',
+        logo: 'logos/au.png',
+        type: 'Full-time',
+        summary:
+          'Product responsibility for digital exam and evaluation systems with many user groups, operational dependencies and vendor interfaces.',
+        bullets: [
+          'Own and prioritize roadmap, backlog, upgrades, test tracks, data quality and quality assurance for WISEflow and Explorance Blue.',
+          'Translate needs from business units, faculties, operations, support and vendors into clear product decisions and feasible delivery.',
+          'Drive coordination across IT, educational administration and external system vendors with focus on stable operations and better user experiences.',
+          'Use technical fluency to qualify integrations, data needs, troubleshooting and change impact in complex system landscapes.',
+        ],
+        relatedRole: {
+          title: 'Local Information Security Coordinator',
+          org: 'AU Uddannelse',
+          period: '2024 - Present',
+          bullets: [
+            'Coordinate local ISMS activities, awareness, asset overview, risk assessments and reporting.',
+            'Connect product and operational decisions to ISO27001, NIS2 and GDPR considerations in collaboration with central IT.',
+          ],
+        },
+      },
+      {
+        role: 'Cybersecurity Consultant',
+        org: 'IQ Metal - Integrated Metal Solutions',
+        period: '2024',
+        logo: 'logos/iqmetal.png',
+        type: 'Internship',
+        summary:
+          'Hands-on work with information security, risks and implementable security measures in a manufacturing company.',
+        bullets: [
+          'Developed security policies, procedures and awareness material with focus on everyday usability.',
+          'Conducted risk assessments and vulnerability analyses as input for security prioritization.',
+          'Translated compliance requirements and technical risks into concrete recommendations for management and employees.',
+        ],
+      },
+      {
+        role: 'UX Designer',
+        org: 'Wakeque',
+        period: '2024',
+        logo: 'logos/wakeque.png',
+        type: 'Internship',
+        summary:
+          'Product-oriented UX work on onboarding and customer journey for a vertical SaaS product.',
+        bullets: [
+          'Mapped user needs and optimized onboarding through research, wireframes and prototypes.',
+          'Collaborated with developers to turn user insight into implementable product improvements.',
+          'Contributed clearer user flows and stronger alignment between product value, interface and technical solution.',
+        ],
+      },
+      {
+        role: 'Teaching Assistant, Software Development',
+        org: 'MSc ITKO, Aarhus BSS',
+        period: '2022 - 2023',
+        logo: 'logos/bss.png',
+        type: 'Part-time',
+        summary:
+          'Teaching and feedback role in software development for ITKO students.',
+        bullets: [
+          'Facilitated exercises, gave assignment feedback and helped students understand software development in practice.',
+          'Strengthened the ability to explain technical topics clearly to non-specialists.',
+        ],
+      },
+      {
+        role: 'ISO27001 Consultant',
+        org: 'ApplicateIT',
+        period: '2021',
+        logo: 'logos/applicate.png',
+        type: 'Internship',
+        summary:
+          'Work with ISO27001 and practical information security management.',
+        bullets: [
+          'Worked with the ISO27001 standard and contributed to building and operating an information security management system.',
+        ],
+      },
+    ] satisfies ExperienceItem[],
+    education: [
+      {
+        degree: 'MSc - IT, Communication & Organization (ITKO)',
+        school: 'Aarhus BSS, Aarhus University',
+        period: '2021 - 2023',
+        logo: 'logos/bss.png',
+      },
+      {
+        degree: 'BA - Digital Design, IT, Aesthetics & Interaction and Information Studies',
+        school: 'Aarhus University',
+        period: '2017 - 2020',
+        logo: 'logos/au.png',
+      },
+      {
+        degree: 'AP - Service, Hospitality & Tourism Management (Sport & Event)',
+        school: 'Dania - Business Academy',
+        period: '2015 - 2017',
+        logo: 'logos/dania.png',
+      },
+    ],
+    certifications: [
+      { name: 'Professional Product Focus', image: 'ppf.png' },
+      { name: 'Google Cybersecurity Certificate', image: 'gcc.png' },
+      { name: 'Business English Academy', image: 'bea.png' },
+    ],
+    tools:
+      'Azure, Power Platform, API management, integrations, SQL, JavaScript, Python, C#, testing/QA, automation and AI tools.',
+    footerText: 'Product, technology, UX and governance in one PM/PO profile.',
+  },
+} as const
 
-  const education = [
-    {
-      degree: 'MSc – IT, Communication & Organization (ITKO)',
-      school: 'BSS – Aarhus University',
-      period: '2021 – 2023',
-      logo: 'logos/bss.png',
-    },
-    {
-      degree: 'BA – Digital Design, IT, Aesthetics & Interaction & Information Studies',
-      school: 'Aarhus University',
-      period: '2017 – 2020',
-      logo: 'logos/au.png',
-    },
-    {
-      degree: 'AP – Service, Hospitality & Tourism Management (Sport & Event)',
-      school: 'Dania – Business Academy',
-      period: '2015 – 2017',
-      logo: 'logos/dania.png',
-    },
-  ]
+const languages: Language[] = ['da', 'en']
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-5 flex items-center gap-4">
+      <h2 className="text-xl font-semibold tracking-tight text-zinc-950 sm:text-2xl">{children}</h2>
+      <div className="h-px flex-1 bg-zinc-200" />
+    </div>
+  )
+}
+
+function Logo({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md border border-zinc-200 bg-white p-2">
+      <img src={src} alt={alt} className="max-h-10 max-w-10 object-contain" />
+    </div>
+  )
+}
+
+export default function CVPage() {
+  const [language, setLanguage] = useState<Language>('da')
+  const copy = content[language]
+
+  const phoneLink = useMemo(() => contact.phone.replace(/\s/g, ''), [])
+
+  useEffect(() => {
+    document.documentElement.lang = language
+  }, [language])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-800">
-      {/* Hero */}
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:py-14">
-        <div className="grid items-start gap-8 sm:grid-cols-[auto_1fr]">
-          <div className="relative">
-            <div className="absolute -inset-3 -z-10 rounded-[28px] bg-gradient-to-br from-sky-200/60 via-indigo-200/50 to-fuchsia-200/40 blur-2xl" />
-            <img
-              src="portrait.jpg"
-              alt="Portrait of Mads Dixen"
-              className="h-40 w-40 sm:h-56 sm:w-56 md:h-64 md:w-64 rounded-3xl object-cover shadow-xl ring-4 ring-white"
-            />
+    <main className="min-h-screen bg-[#f7f5ef] text-zinc-900" lang={language}>
+      <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-6 lg:grid-cols-[1fr_auto] lg:px-8">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-600">
+            <span>{copy.location}</span>
+            <span className="hidden h-1 w-1 rounded-full bg-zinc-300 sm:inline-block" />
+            <a className="underline-offset-4 hover:underline" href={`mailto:${contact.email}`}>
+              {contact.email}
+            </a>
+            <span className="hidden h-1 w-1 rounded-full bg-zinc-300 sm:inline-block" />
+            <a className="underline-offset-4 hover:underline" href={`tel:${phoneLink}`}>
+              {contact.phone}
+            </a>
           </div>
+
+          <div className="flex w-fit rounded-md border border-zinc-300 bg-zinc-50 p-1" aria-label="Language selector">
+            {languages.map((item) => (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setLanguage(item)}
+                className={`rounded px-3 py-1.5 text-sm font-medium transition ${
+                  language === item
+                    ? 'bg-zinc-950 text-white shadow-sm'
+                    : 'text-zinc-600 hover:bg-white hover:text-zinc-950'
+                }`}
+                aria-pressed={language === item}
+              >
+                {content[item].languageName}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-10 lg:grid-cols-[1fr_320px] lg:px-8 lg:py-14">
           <div>
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{profile.name}</h2>
-            <p className="mt-1 text-base font-medium text-slate-600">{profile.title}</p>
-            <div className="mt-3 h-1 w-24 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
-            <p className="mt-4 max-w-3xl text-[15.5px] leading-relaxed text-slate-700">
-              {profile.summary}
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">{copy.eyebrow}</p>
+            <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
+              {contact.name}
+            </h1>
+            <p className="mt-4 max-w-4xl text-2xl font-medium leading-tight text-zinc-800 sm:text-3xl">
+              {copy.title}
             </p>
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-slate-700">
-              <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm">{profile.location}</span>
-              <a href={`mailto:${profile.email}`} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">{profile.email}</a>
-              <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">{profile.phone}</a>
-              <a href={profile.linkedin} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4">LinkedIn</a>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-700">{copy.intro}</p>
+
+            <div className="mt-7 flex flex-wrap gap-2">
+              {copy.targetRoles.map((role) => (
+                <span key={role} className="rounded-md border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-900">
+                  {role}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="https://madsdixen.github.io/cv/"
-                className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 shadow-sm underline underline-offset-4"
+                href={`mailto:${contact.email}`}
+                className="rounded-md bg-zinc-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800"
+              >
+                {copy.ctaPrimary}
+              </a>
+              <a
+                href={contact.linkedin}
+                className="rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition hover:border-zinc-950"
+              >
+                {copy.ctaSecondary}
+              </a>
+              <a
+                href={contact.cvUrl}
+                className="rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition hover:border-zinc-950"
               >
                 CV
               </a>
             </div>
           </div>
+
+          <aside className="lg:justify-self-end">
+            <img
+              src="portrait.jpg"
+              alt={`Portrait of ${contact.name}`}
+              className="aspect-[4/5] w-full max-w-[280px] rounded-md object-cover shadow-sm ring-1 ring-zinc-200"
+            />
+            <dl className="mt-6 space-y-4 border-t border-zinc-200 pt-5">
+              {[
+                [copy.meta.current, copy.metaItems[0]],
+                [copy.meta.education, copy.metaItems[1]],
+                [copy.meta.availability, copy.metaItems[2]],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">{label}</dt>
+                  <dd className="mt-1 text-sm leading-6 text-zinc-800">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         </div>
       </section>
 
-      {/* Skills */}
-      <section className="mx-auto max-w-5xl px-4 py-6">
-        <div className="flex items-center gap-3">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-600">Core Skills</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
-        </div>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {skills.map((s) => (
-            <span
-              key={s}
-              className="rounded-full bg-white/70 backdrop-blur px-3 py-1 text-sm border border-slate-200/60 shadow-sm hover:shadow transition"
-            >
-              {s}
-            </span>
+      <section className="mx-auto max-w-6xl px-5 py-10 lg:px-8">
+        <SectionHeading>{copy.sections.value}</SectionHeading>
+        <div className="grid gap-px overflow-hidden rounded-md border border-zinc-200 bg-zinc-200 md:grid-cols-2 lg:grid-cols-4">
+          {copy.valueProps.map((item) => (
+            <article key={item.label} className="bg-white p-5">
+              <h3 className="text-base font-semibold text-zinc-950">{item.label}</h3>
+              <p className="mt-3 text-sm leading-6 text-zinc-700">{item.text}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Experience */}
-      <section className="mx-auto max-w-5xl px-4 py-8">
-        <div className="flex items-center gap-3">
-          <h3 className="text-xl font-semibold tracking-tight">Experience</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
-        </div>
-        <div className="mt-5 space-y-6">
-          {experience.map((item, idx) => (
-            <article
-              key={idx}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200/70 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
-              <div className="p-4 grid grid-cols-4 gap-4">
-                <div className="col-span-3">
-                  <h4 className="text-base font-semibold">
-                    {item.role} <span className="text-slate-500">· {item.org}</span>
-                    {item.type && (
-                      <span className="ml-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-600">
-                        {item.type}
-                      </span>
-                    )}
-                  </h4>
-                  <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-slate-700">
-                    {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
-                  </ul>
-                  {item.coordinatorRole && (
-                    <div className="mt-3 text-sm text-slate-700">
-                      <p className="font-semibold text-slate-800">
-                        {item.coordinatorRole.title}{' '}
-                        <span className="text-slate-500">· {item.coordinatorRole.org}</span>
-                      </p>
-                      <ul className="mt-1 list-disc space-y-1 pl-5 text-[15px] leading-relaxed text-slate-700">
-                        {item.coordinatorRole.bullets.map((b, i) => <li key={i}>{b}</li>)}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-                <div className="col-span-1 flex flex-col items-end justify-between">
-                  {item.logo && (
-                    <div className="mb-2 flex h-24 w-24 items-center justify-center rounded-xl border border-slate-200 bg-white">
-                      <img
-                        src={item.logo}
-                        alt={`${item.org} logo`}
-                        className="h-16 w-16 object-contain"
-                      />
-                    </div>
-                  )}
-                  <span className="text-sm text-slate-500">{item.period}</span>
-                </div>
+      <section className="mx-auto max-w-6xl px-5 py-4 lg:px-8">
+        <SectionHeading>{copy.sections.skills}</SectionHeading>
+        <div className="grid gap-4 md:grid-cols-2">
+          {copy.skillGroups.map((group) => (
+            <article key={group.label} className="rounded-md border border-zinc-200 bg-white p-5">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">{group.label}</h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span key={item} className="rounded border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-sm text-zinc-700">
+                    {item}
+                  </span>
+                ))}
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* Education + Certifications */}
-      <section className="mx-auto max-w-5xl px-4 pb-16">
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3">
-              <h3 className="text-xl font-semibold tracking-tight">Education</h3>
-              <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
-            </div>
-            <div className="mt-5 space-y-6">
-              {education.map((e, i) => (
-                <div
-                  key={i}
-                  className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
-                  <div className="p-4 grid grid-cols-4 gap-4">
-                    <div className="col-span-3">
-                      <p className="font-medium">{e.degree}</p>
-                      <p className="mt-1 text-sm text-slate-600">{e.school}</p>
-                    </div>
-                    <div className="col-span-1 flex flex-col items-end justify-between">
-                      {e.logo && (
-                        <div className="mb-2 flex h-24 w-24 items-center justify-center rounded-xl border border-slate-200 bg-white">
-                          <img
-                            src={e.logo}
-                            alt={`${e.school} logo`}
-                            className="h-16 w-16 object-contain"
-                          />
-                        </div>
-                      )}
-                      <span className="text-sm text-slate-500">{e.period}</span>
-                    </div>
+      <section className="mx-auto max-w-6xl px-5 py-10 lg:px-8">
+        <SectionHeading>{copy.sections.experience}</SectionHeading>
+        <div className="space-y-4">
+          {copy.experience.map((item) => (
+            <article key={`${item.role}-${item.org}`} className="rounded-md border border-zinc-200 bg-white p-5 sm:p-6">
+              <div className="grid gap-5 sm:grid-cols-[auto_1fr_auto]">
+                <Logo src={item.logo} alt={`${item.org} logo`} />
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-lg font-semibold text-zinc-950">{item.role}</h3>
+                    <span className="rounded border border-zinc-200 bg-zinc-50 px-2 py-0.5 text-xs font-medium text-zinc-600">
+                      {item.type}
+                    </span>
                   </div>
+                  <p className="mt-1 text-sm font-medium text-zinc-600">{item.org}</p>
+                  <p className="mt-3 max-w-3xl text-sm leading-6 text-zinc-700">{item.summary}</p>
                 </div>
-              ))}
-            </div>
+                <p className="text-sm font-medium text-zinc-500 sm:text-right">{item.period}</p>
+              </div>
+
+              <ul className="mt-5 space-y-2 pl-5 text-sm leading-6 text-zinc-700 marker:text-emerald-700">
+                {item.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+
+              {item.relatedRole && (
+                <div className="mt-5 border-t border-zinc-200 pt-5">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <div>
+                      <h4 className="font-semibold text-zinc-950">{item.relatedRole.title}</h4>
+                      <p className="mt-1 text-sm text-zinc-600">{item.relatedRole.org}</p>
+                    </div>
+                    <p className="text-sm font-medium text-zinc-500">{item.relatedRole.period}</p>
+                  </div>
+                  <ul className="mt-3 space-y-2 pl-5 text-sm leading-6 text-zinc-700 marker:text-emerald-700">
+                    {item.relatedRole.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-12 lg:grid-cols-[1.4fr_1fr] lg:px-8">
+        <div>
+          <SectionHeading>{copy.sections.education}</SectionHeading>
+          <div className="space-y-3">
+            {copy.education.map((item) => (
+              <article key={item.degree} className="grid gap-4 rounded-md border border-zinc-200 bg-white p-5 sm:grid-cols-[auto_1fr_auto]">
+                <Logo src={item.logo} alt={`${item.school} logo`} />
+                <div>
+                  <h3 className="font-semibold text-zinc-950">{item.degree}</h3>
+                  <p className="mt-1 text-sm text-zinc-600">{item.school}</p>
+                </div>
+                <p className="text-sm font-medium text-zinc-500 sm:text-right">{item.period}</p>
+              </article>
+            ))}
           </div>
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <h3 className="text-xl font-semibold tracking-tight">Certifications</h3>
-              <div className="h-px flex-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400" />
-            </div>
-            <div className="relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white p-6 shadow-lg">
-              <div className="mt-2 grid grid-cols-1 gap-6">
-              {['ppf.png', 'gcc.png', 'bea.png'].map((cert, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-sky-200/50 via-indigo-200/40 to-fuchsia-200/50 p-4 shadow-md backdrop-blur-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-                >
-                  <div className="flex h-36 w-36 items-center justify-center">
-                    <img
-                      src={`${cert}`}
-                      alt={`Certification ${i + 1}`}
-                      className="h-24 w-24 object-contain"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-            </div>
+        </div>
+
+        <div>
+          <SectionHeading>{copy.sections.certifications}</SectionHeading>
+          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            {copy.certifications.map((item) => (
+              <article key={item.name} className="flex items-center gap-4 rounded-md border border-zinc-200 bg-white p-4">
+                <img src={item.image} alt={item.name} className="h-14 w-14 object-contain" />
+                <h3 className="text-sm font-semibold leading-5 text-zinc-900">{item.name}</h3>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-6 rounded-md border border-zinc-200 bg-white p-5">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">{copy.sections.tools}</h3>
+            <p className="mt-3 text-sm leading-6 text-zinc-700">{copy.tools}</p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200/70 bg-gradient-to-b from-white to-slate-100 py-6 text-sm text-slate-500">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4">
-          {/*<p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>*/}
-          <div className="flex items-center gap-3">
-            <a href={profile.linkedin} className="underline underline-offset-4">LinkedIn</a>
-            <a href={`mailto:${profile.email}`} className="underline underline-offset-4">Email</a>
-            <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="underline underline-offset-4">Phone</a>
-            <a href="https://madsdixen.github.io/cv/" className="underline underline-offset-4">CV</a>
+      <footer className="border-t border-zinc-200 bg-zinc-950 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <p className="text-sm text-zinc-300">{copy.footerText}</p>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <a className="text-zinc-100 underline-offset-4 hover:underline" href={contact.linkedin}>
+              LinkedIn
+            </a>
+            <a className="text-zinc-100 underline-offset-4 hover:underline" href={`mailto:${contact.email}`}>
+              {copy.sections.footer}
+            </a>
+            <a className="text-zinc-100 underline-offset-4 hover:underline" href={`tel:${phoneLink}`}>
+              {contact.phone}
+            </a>
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   )
 }
