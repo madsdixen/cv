@@ -192,9 +192,21 @@ const content = {
       },
     ],
     certifications: [
-      { name: 'Professional Scrum Product Owner I (PSPO I)', image: 'pspo.png' },
-      { name: 'Professional Product Focus', image: 'ppf.png' },
-      { name: 'Google Cybersecurity Certificate', image: 'gcc.png' },
+      {
+        name: 'Professional Scrum Product Owner I (PSPO I)',
+        image: 'pspo.png',
+        url: 'https://www.credly.com/badges/32e3ed17-021a-471d-9028-47629ae6f15a/public_url',
+      },
+      {
+        name: 'Microsoft Certified: Power Platform Fundamentals',
+        image: 'ppf.png',
+        url: 'https://learn.microsoft.com/api/credentials/share/en-gb/madsdixen-7648/861AED63E5788481?sharingId=5C88479DBB3C0924',
+      },
+      {
+        name: 'Google Cybersecurity Certificate',
+        image: 'gcc.png',
+        url: 'https://coursera.org/share/4a0c5f52428c0cf2ca39a38f7ae7db45',
+      },
     ],
     tools:
       'Azure, Power Platform, API management, integrationer, SQL, JavaScript, Python, C#, test/QA, automatisering og AI-værktøjer.',
@@ -365,9 +377,21 @@ const content = {
       },
     ],
     certifications: [
-      { name: 'Professional Scrum Product Owner I (PSPO I)', image: 'pspo.png' },
-      { name: 'Professional Product Focus', image: 'ppf.png' },
-      { name: 'Google Cybersecurity Certificate', image: 'gcc.png' },
+      {
+        name: 'Professional Scrum Product Owner I (PSPO I)',
+        image: 'pspo.png',
+        url: 'https://www.credly.com/badges/32e3ed17-021a-471d-9028-47629ae6f15a/public_url',
+      },
+      {
+        name: 'Microsoft Certified: Power Platform Fundamentals',
+        image: 'ppf.png',
+        url: 'https://learn.microsoft.com/api/credentials/share/en-gb/madsdixen-7648/861AED63E5788481?sharingId=5C88479DBB3C0924',
+      },
+      {
+        name: 'Google Cybersecurity Certificate',
+        image: 'gcc.png',
+        url: 'https://coursera.org/share/4a0c5f52428c0cf2ca39a38f7ae7db45',
+      },
     ],
     tools:
       'Azure, Power Platform, API management, integrations, SQL, JavaScript, Python, C#, testing/QA, automation and AI tools.',
@@ -611,10 +635,16 @@ export default function CVPage() {
         <SectionHeading>{copy.sections.certifications}</SectionHeading>
         <div className="grid gap-3 sm:grid-cols-3">
           {copy.certifications.map((item) => (
-            <article key={item.name} className="flex min-h-28 items-center gap-4 rounded-md border border-zinc-200 bg-white p-5">
-              <img src={item.image} alt={item.name} className="h-16 w-16 shrink-0 object-contain" />
+            <a
+              key={item.name}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex min-h-36 items-center gap-5 rounded-md border border-zinc-200 bg-white p-5 transition hover:border-zinc-400 hover:shadow-sm"
+            >
+              <img src={item.image} alt={item.name} className="h-24 w-24 shrink-0 object-contain" />
               <h3 className="text-sm font-semibold leading-5 text-zinc-900">{item.name}</h3>
-            </article>
+            </a>
           ))}
         </div>
       </section>
