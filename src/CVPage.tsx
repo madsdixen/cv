@@ -192,9 +192,9 @@ const content = {
       },
     ],
     certifications: [
+      { name: 'Professional Scrum Product Owner I (PSPO I)', image: 'pspo.png' },
       { name: 'Professional Product Focus', image: 'ppf.png' },
       { name: 'Google Cybersecurity Certificate', image: 'gcc.png' },
-      { name: 'Business English Academy', image: 'bea.png' },
     ],
     tools:
       'Azure, Power Platform, API management, integrationer, SQL, JavaScript, Python, C#, test/QA, automatisering og AI-værktøjer.',
@@ -365,9 +365,9 @@ const content = {
       },
     ],
     certifications: [
+      { name: 'Professional Scrum Product Owner I (PSPO I)', image: 'pspo.png' },
       { name: 'Professional Product Focus', image: 'ppf.png' },
       { name: 'Google Cybersecurity Certificate', image: 'gcc.png' },
-      { name: 'Business English Academy', image: 'bea.png' },
     ],
     tools:
       'Azure, Power Platform, API management, integrations, SQL, JavaScript, Python, C#, testing/QA, automation and AI tools.',
@@ -581,7 +581,7 @@ export default function CVPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-12 lg:grid-cols-[1.4fr_1fr] lg:px-8">
+      <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-10 lg:grid-cols-[1.4fr_1fr] lg:px-8">
         <div>
           <SectionHeading>{copy.sections.education}</SectionHeading>
           <div className="space-y-3">
@@ -599,20 +599,23 @@ export default function CVPage() {
         </div>
 
         <div>
-          <SectionHeading>{copy.sections.certifications}</SectionHeading>
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {copy.certifications.map((item) => (
-              <article key={item.name} className="flex items-center gap-4 rounded-md border border-zinc-200 bg-white p-4">
-                <img src={item.image} alt={item.name} className="h-14 w-14 object-contain" />
-                <h3 className="text-sm font-semibold leading-5 text-zinc-900">{item.name}</h3>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-6 rounded-md border border-zinc-200 bg-white p-5">
+          <SectionHeading>{copy.sections.tools}</SectionHeading>
+          <div className="rounded-md border border-zinc-200 bg-white p-5">
             <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">{copy.sections.tools}</h3>
             <p className="mt-3 text-sm leading-6 text-zinc-700">{copy.tools}</p>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-12 lg:px-8">
+        <SectionHeading>{copy.sections.certifications}</SectionHeading>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {copy.certifications.map((item) => (
+            <article key={item.name} className="flex min-h-28 items-center gap-4 rounded-md border border-zinc-200 bg-white p-5">
+              <img src={item.image} alt={item.name} className="h-16 w-16 shrink-0 object-contain" />
+              <h3 className="text-sm font-semibold leading-5 text-zinc-900">{item.name}</h3>
+            </article>
+          ))}
         </div>
       </section>
 
