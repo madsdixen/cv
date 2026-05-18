@@ -30,11 +30,11 @@ const content = {
   da: {
     languageName: 'Dansk',
     eyebrow: 'Product Manager / Product Owner',
-    title: 'Product Manager med teknisk tyngde, UX-forståelse og stærk delivery-disciplin',
+    title: 'Produktansvarlig med teknisk forståelse, brugerblik og sans for sikker drift',
     location: 'Aarhus, Danmark',
     intro:
-      'Jeg omsætter komplekse behov, systemlandskaber og compliancekrav til klare produktprioriteter, stærke samarbejdsflader og løsninger, der kan drives sikkert i drift. Min profil kombinerer product management, informationssikkerhed, UX, softwareforståelse og forretningsnær stakeholderstyring.',
-    targetRoles: ['Product Manager', 'Product Owner', 'Digital Product Lead', 'IT Product Manager'],
+      'Jeg arbejder med digitale produkter i krydsfeltet mellem brugere, forretning, IT-drift og leverandører. Min styrke er at skabe overblik, prioritere det vigtigste og få komplekse systemændringer sikkert fra behov til løsning.',
+    targetRoles: ['Product Owner', 'Product Manager', 'Digital produktansvarlig', 'IT Product Manager'],
     ctaPrimary: 'Kontakt',
     ctaSecondary: 'LinkedIn',
     meta: {
@@ -45,10 +45,10 @@ const content = {
     metaItems: [
       'Produktansvar for digitale studie-, eksamens- og evalueringssystemer',
       'MSc ITKO, Aarhus BSS',
-      'PM/PO-roller i digitale produkter, SaaS, platforme og IT-forretning',
+      'PM/PO-roller i digitale produkter, platforme, SaaS og IT-nære organisationer',
     ],
     sections: {
-      value: 'Det jeg bringer som PM/PO',
+      value: 'Relevant for PM/PO-roller',
       skills: 'Kompetencer',
       experience: 'Erfaring',
       education: 'Uddannelse',
@@ -58,37 +58,37 @@ const content = {
     },
     valueProps: [
       {
-        label: 'Produktretning',
-        text: 'Prioriterer roadmap og backlog ud fra brugerbehov, driftsrealitet, risiko og forretningsværdi.',
+        label: 'Produktprioritering',
+        text: 'Skaber overblik over behov, afhængigheder og risici, så roadmap og backlog kan prioriteres realistisk.',
       },
       {
-        label: 'Stakeholderledelse',
-        text: 'Skaber fælles retning på tværs af brugere, ledelse, IT, leverandører og fageksperter.',
+        label: 'Samarbejde på tværs',
+        text: 'Får brugere, drift, ledelse, IT og leverandører til at arbejde ud fra samme retning og beslutningsgrundlag.',
       },
       {
-        label: 'Discovery til delivery',
-        text: 'Kobler research, procesforståelse, test, kvalitetssikring og implementering til en praktisk produktproces.',
+        label: 'Fra behov til løsning',
+        text: 'Kobler brugerindsigt, krav, test og implementering, så løsninger kan lande ordentligt i organisationen.',
       },
       {
-        label: 'Sikker digitalisering',
-        text: 'Bringer ISO27001-, NIS2-, GDPR- og risikoperspektiver ind i produktbeslutninger uden at miste fremdrift.',
+        label: 'Sikker og stabil drift',
+        text: 'Tager højde for datakvalitet, compliance og informationssikkerhed i produktbeslutninger og ændringsforløb.',
       },
     ],
     skillGroups: [
       {
-        label: 'Product',
-        items: ['Roadmaps', 'Backlog management', 'Prioritering', 'Kravarbejde', 'Release- og upgrade-koordinering'],
+        label: 'Produkt',
+        items: ['Roadmaps', 'Backlog', 'Prioritering', 'Kravarbejde', 'Release- og upgrade-koordinering'],
       },
       {
-        label: 'Delivery',
-        items: ['Agile/Scrum', 'Test og QA', 'Procesoptimering', 'Leverandørsamarbejde', 'Kvalitetsporte'],
+        label: 'Leverance',
+        items: ['Agile/Scrum', 'Test og QA', 'Procesoptimering', 'Leverandørsamarbejde', 'Kvalitetssikring'],
       },
       {
-        label: 'Discovery & UX',
-        items: ['User research', 'Kunderejser', 'Wireframes', 'Prototyper', 'Brugercentreret design'],
+        label: 'Brugerindsigt og UX',
+        items: ['Brugerresearch', 'Kunderejser', 'Wireframes', 'Prototyper', 'Brugercentreret design'],
       },
       {
-        label: 'Tech & Governance',
+        label: 'Teknik og governance',
         items: ['Informationssikkerhed', 'ISO27001', 'NIS2', 'GDPR', 'Integrationer', 'Automatisering'],
       },
     ],
@@ -100,12 +100,12 @@ const content = {
         logo: 'logos/au.png',
         type: 'Fuldtid',
         summary:
-          'Produktansvar for digitale eksamens- og evalueringssystemer med mange brugergrupper, driftsafhængigheder og leverandørflader.',
+          'Produktansvar for digitale eksamens- og evalueringssystemer med mange brugergrupper, driftsafhængigheder og eksterne leverandører.',
         bullets: [
-          'Ejer og prioriterer roadmap, backlog, opgraderinger, testforløb, datakvalitet og kvalitetssikring for WISEflow og Explorance Blue.',
-          'Oversætter behov fra forretning, fakulteter, drift, support og leverandører til klare produktbeslutninger og gennemførlige leverancer.',
-          'Driver koordinering på tværs af IT, uddannelsesadministration og eksterne systemleverandører med fokus på stabil drift og bedre brugeroplevelser.',
-          'Bruger teknisk forståelse til at kvalificere integrationer, databehov, fejlsøgning og konsekvenser ved ændringer i komplekse systemlandskaber.',
+          'Prioriterer roadmap, backlog, opgraderinger, testforløb, datakvalitet og kvalitetssikring for WISEflow og Explorance Blue.',
+          'Omsætter behov fra fakulteter, drift, support og leverandører til klare krav, beslutninger og gennemførlige leverancer.',
+          'Koordinerer ændringer på tværs af IT, uddannelsesadministration og systemleverandører med fokus på stabil drift.',
+          'Kvalificerer integrationer, databehov, fejlsøgning og konsekvenser ved ændringer i komplekse systemlandskaber.',
         ],
         relatedRole: {
           title: 'Lokal informationssikkerhedskoordinator',
@@ -113,7 +113,7 @@ const content = {
           period: '2024 - nu',
           bullets: [
             'Koordinerer lokale ISMS-aktiviteter, awareness, aktivoverblik, risikovurderinger og rapportering.',
-            'Kobler produkt- og driftsbeslutninger til ISO27001-, NIS2- og GDPR-hensyn i samarbejde med central IT.',
+            'Sikrer at produkt- og driftsbeslutninger tager højde for ISO27001, NIS2 og GDPR i samarbejde med central IT.',
           ],
         },
       },
@@ -126,7 +126,7 @@ const content = {
         summary:
           'Praktisk arbejde med informationssikkerhed, risici og implementerbare sikkerhedstiltag i en produktionsvirksomhed.',
         bullets: [
-          'Udarbejdede sikkerhedspolitikker, procedurer og awarenessmateriale med fokus på anvendelighed i hverdagen.',
+          'Udarbejdede sikkerhedspolitikker, procedurer og awarenessmateriale med fokus på praktisk anvendelse.',
           'Gennemførte risikovurderinger og sårbarhedsanalyser som grundlag for prioritering af sikkerhedsindsatser.',
           'Omsatte compliancekrav og tekniske risici til konkrete anbefalinger for ledelse og medarbejdere.',
         ],
@@ -140,9 +140,9 @@ const content = {
         summary:
           'Produktnært UX-arbejde på onboarding og kunderejse for et vertikalt SaaS-produkt.',
         bullets: [
-          'Kortlagde brugerbehov og optimerede onboardingflow med research, wireframes og prototyper.',
+          'Kortlagde brugerbehov og forbedringsmuligheder i onboardingflow med research, wireframes og prototyper.',
           'Samarbejdede med udviklere om at omsætte brugerindsigter til implementerbare produktforbedringer.',
-          'Bidrog til mere tydelige brugerflows og bedre sammenhæng mellem produktværdi, interface og teknisk løsning.',
+          'Bidrog til tydeligere brugerflows og bedre sammenhæng mellem produktværdi, interface og teknisk løsning.',
         ],
       },
       {
@@ -209,17 +209,17 @@ const content = {
       },
     ],
     tools:
-      'Azure, Power Platform, API management, integrationer, SQL, JavaScript, Python, C#, test/QA, automatisering og AI-værktøjer.',
-    footerText: 'Produkt, teknologi, UX og governance samlet i én PM/PO-profil.',
+      'Azure, Power Platform, API management, integrationer, SQL, JavaScript, Python, C#, test/QA, automatisering og AI-værktøjer. Jeg kan tale med både brugere, udviklere, drift og leverandører og omsætte tekniske hensyn til produktbeslutninger.',
+    footerText: 'Produkt, teknologi, brugerindsigt og governance samlet i en praktisk PM/PO-profil.',
   },
   en: {
     languageName: 'English',
     eyebrow: 'Product Manager / Product Owner',
-    title: 'Product Manager with technical depth, UX judgment and strong delivery discipline',
+    title: 'Product-minded profile with technical understanding, user focus and operational judgment',
     location: 'Aarhus, Denmark',
     intro:
-      'I turn complex needs, system landscapes and compliance requirements into clear product priorities, strong stakeholder alignment and solutions that can operate reliably. My profile combines product management, information security, UX, software understanding and business-oriented stakeholder management.',
-    targetRoles: ['Product Manager', 'Product Owner', 'Digital Product Lead', 'IT Product Manager'],
+      'I work with digital products at the intersection of users, business needs, IT operations and vendors. My strength is creating clarity, prioritizing what matters and moving complex system changes from need to workable solution.',
+    targetRoles: ['Product Owner', 'Product Manager', 'Digital Product Lead', 'IT Product Manager'],
     ctaPrimary: 'Contact',
     ctaSecondary: 'LinkedIn',
     meta: {
@@ -230,10 +230,10 @@ const content = {
     metaItems: [
       'Product ownership for digital study, exam and evaluation systems',
       'MSc ITKO, Aarhus BSS',
-      'PM/PO roles in digital products, SaaS, platforms and business-facing IT',
+      'PM/PO roles in digital products, platforms, SaaS and IT-near organizations',
     ],
     sections: {
-      value: 'What I bring as a PM/PO',
+      value: 'Relevant for PM/PO roles',
       skills: 'Capabilities',
       experience: 'Experience',
       education: 'Education',
@@ -243,30 +243,30 @@ const content = {
     },
     valueProps: [
       {
-        label: 'Product direction',
-        text: 'Prioritizes roadmap and backlog through user needs, operational reality, risk and business value.',
+        label: 'Product prioritization',
+        text: 'Creates an overview of needs, dependencies and risks so roadmap and backlog can be prioritized realistically.',
       },
       {
-        label: 'Stakeholder leadership',
-        text: 'Creates shared direction across users, management, IT, vendors and subject-matter experts.',
+        label: 'Cross-functional collaboration',
+        text: 'Aligns users, operations, management, IT and vendors around a shared direction and decision basis.',
       },
       {
-        label: 'Discovery to delivery',
-        text: 'Connects research, process understanding, testing, QA and implementation in a practical product workflow.',
+        label: 'From need to solution',
+        text: 'Connects user insight, requirements, testing and implementation so solutions can land properly in the organization.',
       },
       {
-        label: 'Secure digitalization',
-        text: 'Brings ISO27001, NIS2, GDPR and risk perspectives into product decisions without losing momentum.',
+        label: 'Stable and secure operations',
+        text: 'Factors data quality, compliance and information security into product decisions and change processes.',
       },
     ],
     skillGroups: [
       {
         label: 'Product',
-        items: ['Roadmaps', 'Backlog management', 'Prioritization', 'Requirements', 'Release and upgrade coordination'],
+        items: ['Roadmaps', 'Backlog', 'Prioritization', 'Requirements', 'Release and upgrade coordination'],
       },
       {
         label: 'Delivery',
-        items: ['Agile/Scrum', 'Testing and QA', 'Process optimization', 'Vendor collaboration', 'Quality gates'],
+        items: ['Agile/Scrum', 'Testing and QA', 'Process optimization', 'Vendor collaboration', 'Quality assurance'],
       },
       {
         label: 'Discovery & UX',
@@ -285,12 +285,12 @@ const content = {
         logo: 'logos/au.png',
         type: 'Full-time',
         summary:
-          'Product responsibility for digital exam and evaluation systems with many user groups, operational dependencies and vendor interfaces.',
+          'Product responsibility for digital exam and evaluation systems with many user groups, operational dependencies and external vendors.',
         bullets: [
-          'Own and prioritize roadmap, backlog, upgrades, test tracks, data quality and quality assurance for WISEflow and Explorance Blue.',
-          'Translate needs from business units, faculties, operations, support and vendors into clear product decisions and feasible delivery.',
-          'Drive coordination across IT, educational administration and external system vendors with focus on stable operations and better user experiences.',
-          'Use technical fluency to qualify integrations, data needs, troubleshooting and change impact in complex system landscapes.',
+          'Prioritize roadmap, backlog, upgrades, test tracks, data quality and quality assurance for WISEflow and Explorance Blue.',
+          'Translate needs from faculties, operations, support and vendors into clear requirements, decisions and feasible deliveries.',
+          'Coordinate changes across IT, educational administration and system vendors with focus on stable operations.',
+          'Qualify integrations, data needs, troubleshooting and change impact in complex system landscapes.',
         ],
         relatedRole: {
           title: 'Local Information Security Coordinator',
@@ -298,7 +298,7 @@ const content = {
           period: '2024 - Present',
           bullets: [
             'Coordinate local ISMS activities, awareness, asset overview, risk assessments and reporting.',
-            'Connect product and operational decisions to ISO27001, NIS2 and GDPR considerations in collaboration with central IT.',
+            'Ensure product and operational decisions account for ISO27001, NIS2 and GDPR in collaboration with central IT.',
           ],
         },
       },
@@ -311,7 +311,7 @@ const content = {
         summary:
           'Hands-on work with information security, risks and implementable security measures in a manufacturing company.',
         bullets: [
-          'Developed security policies, procedures and awareness material with focus on everyday usability.',
+          'Developed security policies, procedures and awareness material with focus on practical use.',
           'Conducted risk assessments and vulnerability analyses as input for security prioritization.',
           'Translated compliance requirements and technical risks into concrete recommendations for management and employees.',
         ],
@@ -325,9 +325,9 @@ const content = {
         summary:
           'Product-oriented UX work on onboarding and customer journey for a vertical SaaS product.',
         bullets: [
-          'Mapped user needs and optimized onboarding through research, wireframes and prototypes.',
+          'Mapped user needs and improvement opportunities in the onboarding flow through research, wireframes and prototypes.',
           'Collaborated with developers to turn user insight into implementable product improvements.',
-          'Contributed clearer user flows and stronger alignment between product value, interface and technical solution.',
+          'Contributed to clearer user flows and better alignment between product value, interface and technical solution.',
         ],
       },
       {
@@ -394,8 +394,8 @@ const content = {
       },
     ],
     tools:
-      'Azure, Power Platform, API management, integrations, SQL, JavaScript, Python, C#, testing/QA, automation and AI tools.',
-    footerText: 'Product, technology, UX and governance in one PM/PO profile.',
+      'Azure, Power Platform, API management, integrations, SQL, JavaScript, Python, C#, testing/QA, automation and AI tools. I can work with users, developers, operations and vendors and translate technical considerations into product decisions.',
+    footerText: 'Product, technology, user insight and governance in a practical PM/PO profile.',
   },
 } as const
 
