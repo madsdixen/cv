@@ -53,7 +53,7 @@ const content = {
       experience: 'Erfaring',
       education: 'Uddannelse',
       certifications: 'Certificeringer',
-      tools: 'Teknologisk forståelse',
+      tools: 'Anvendt teknologiforståelse',
       footer: 'Kontakt',
     },
     valueProps: [
@@ -88,8 +88,8 @@ const content = {
         items: ['Brugerresearch', 'Kunderejser', 'Wireframes', 'Prototyper', 'Brugercentreret design'],
       },
       {
-        label: 'Teknik og governance',
-        items: ['Informationssikkerhed', 'ISO27001', 'NIS2', 'GDPR', 'Integrationer', 'Automatisering'],
+        label: 'Teknik, data og governance',
+        items: ['Informationssikkerhed', 'Datakvalitet', 'Integrationer', 'API management', 'ISO27001/NIS2/GDPR', 'Automatisering'],
       },
     ],
     experience: [
@@ -209,7 +209,7 @@ const content = {
       },
     ],
     tools:
-      'Azure, Power Platform, API management, integrationer, SQL, JavaScript, Python, C#, test/QA, automatisering og AI-værktøjer. Jeg kan tale med både brugere, udviklere, drift og leverandører og omsætte tekniske hensyn til produktbeslutninger.',
+      'Jeg bruger teknologiforståelsen til at kvalificere produktbeslutninger: databehov, integrationer, adgangsstyring, test/QA, risici og leverandørafklaringer. Værktøjskassen omfatter Azure, Power Platform, API management, SQL, JavaScript, Python, C#, automatisering og AI-værktøjer.',
     footerText: 'Produkt, teknologi, brugerindsigt og governance samlet i en praktisk PM/PO-profil.',
   },
   en: {
@@ -238,7 +238,7 @@ const content = {
       experience: 'Experience',
       education: 'Education',
       certifications: 'Certifications',
-      tools: 'Technical fluency',
+      tools: 'Applied technical fluency',
       footer: 'Contact',
     },
     valueProps: [
@@ -273,8 +273,8 @@ const content = {
         items: ['User research', 'Customer journeys', 'Wireframes', 'Prototypes', 'User-centered design'],
       },
       {
-        label: 'Tech & Governance',
-        items: ['Information security', 'ISO27001', 'NIS2', 'GDPR', 'Integrations', 'Automation'],
+        label: 'Technology, data & governance',
+        items: ['Information security', 'Data quality', 'Integrations', 'API management', 'ISO27001/NIS2/GDPR', 'Automation'],
       },
     ],
     experience: [
@@ -394,7 +394,7 @@ const content = {
       },
     ],
     tools:
-      'Azure, Power Platform, API management, integrations, SQL, JavaScript, Python, C#, testing/QA, automation and AI tools. I can work with users, developers, operations and vendors and translate technical considerations into product decisions.',
+      'I use technical fluency to qualify product decisions: data needs, integrations, access management, testing/QA, risks and vendor clarifications. My toolkit includes Azure, Power Platform, API management, SQL, JavaScript, Python, C#, automation and AI tools.',
     footerText: 'Product, technology, user insight and governance in a practical PM/PO profile.',
   },
 } as const
@@ -556,7 +556,7 @@ export default function CVPage() {
             </article>
           ))}
         </div>
-        <div className="mt-4 rounded-md border border-zinc-200 bg-white p-5">
+        <div className="mt-4 rounded-md border border-emerald-200 bg-emerald-50/40 p-5">
           <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">{copy.sections.tools}</h3>
           <p className="mt-3 text-sm leading-6 text-zinc-700">{copy.tools}</p>
         </div>
