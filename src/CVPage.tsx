@@ -102,7 +102,7 @@ const content = {
         summary:
           'Produktansvar for digitale eksamens- og evalueringssystemer med mange brugergrupper, driftsafhængigheder og eksterne leverandører.',
         bullets: [
-          'Prioriterer roadmap, backlog, opgraderinger, testforløb, datakvalitet og kvalitetssikring for WISEflow og Explorance Blue.',
+          'Bidrager i teamet til prioritering af roadmap, backlog, opgraderinger, testforløb, datakvalitet og kvalitetssikring for digital eksamen og digital evaluering.',
           'Omsætter behov fra fakulteter, drift, support og leverandører til klare krav, beslutninger og gennemførlige leverancer.',
           'Koordinerer ændringer på tværs af IT, uddannelsesadministration og systemleverandører med fokus på stabil drift.',
           'Kvalificerer integrationer, databehov, fejlsøgning og konsekvenser ved ændringer i komplekse systemlandskaber.',
@@ -287,7 +287,7 @@ const content = {
         summary:
           'Product responsibility for digital exam and evaluation systems with many user groups, operational dependencies and external vendors.',
         bullets: [
-          'Prioritize roadmap, backlog, upgrades, test tracks, data quality and quality assurance for WISEflow and Explorance Blue.',
+          'Contribute within the team to prioritizing roadmap, backlog, upgrades, test tracks, data quality and quality assurance for digital exam and evaluation solutions.',
           'Translate needs from faculties, operations, support and vendors into clear requirements, decisions and feasible deliveries.',
           'Coordinate changes across IT, educational administration and system vendors with focus on stable operations.',
           'Qualify integrations, data needs, troubleshooting and change impact in complex system landscapes.',
